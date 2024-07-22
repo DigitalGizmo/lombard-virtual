@@ -1,0 +1,56 @@
+<script>
+  import { onMount } from 'svelte';
+  // import { createEventDispatcher } from "svelte";
+  // const dispatch = createEventDispatcher();
+  export let modalIdx; // = 'abijah-prince';
+  export let isModalShowing;
+  
+
+
+  // For popup width for map
+  let panelWidth = 1000;
+  // should get width of element modal-basic
+  // but for now, since that's70vw
+
+  onMount(() => {
+    panelWidth = (window.innerWidth * 0.7);
+  })
+
+  function onKeyDown(e) {
+    // console.log('got to key down');
+    if (e.keyCode === 27) {
+      isModalShowing = false;
+    }
+  }
+
+  function closeModal(e) {
+    // console.log('target: ' + e.target.id)
+    if (e.target.id === 'modal-overlay') {
+      isModalShowing = false;
+    }
+  }
+</script>
+
+<svelte:window  
+  on:click={(e) => { closeModal(e)}}/>
+  <!-- on:keydown|preventDefault={onKeyDown} -->
+
+<div id="modal-overlay" class="">
+	<div id="modal-container" class="modal-basic">
+  <div id="modal-wrapper">
+
+    <div class="modal-close">
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <a href="/" on:click={(e) => { e.preventDefault(); isModalShowing = false;}}>
+        <span  id="close-button" class="close"></span>
+      </a>
+    </div><!-- / -->
+
+    <div>
+      <p>More text and images here! index: {modalIdx}</p>
+    </div>
+    
+
+  </div><!-- /modal-wrapper -->
+</div> <!-- /#modal-container /.modal-basic --> <!-- /#modal-container /.modal-basic -->
+</div>
