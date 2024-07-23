@@ -1,3 +1,23 @@
+<script>
+  import MoreModal from "./components/MoreModal.svelte";
+
+  let frame = 0;
+  let modeIdx = 0;
+  let isModalShowing = false;
+
+  const assetPath = "https://dev.digitalgizmo.com/msm-ed/lombard-virtual-assets/"
+
+  function setView(_modeIdx) {
+    modeIdx = _modeIdx;
+  }
+
+  function showModal(_modalIdx) {
+      // event.preventDefault();
+      // modalSlug = slug;
+      isModalShowing = true;
+  };  
+</script>
+
 <div id="wrapper">
   <header>
     <h1>The Virtual Lombard</h1>
@@ -7,7 +27,9 @@
 
     <!-- image/video -->
     <div id="main">
-      <img src="https://dev.digitalgizmo.com/msm-ed/lombard-virtual-assets/images/rotate/Lombard000.png">
+      <img src="https://dev.digitalgizmo.com/msm-ed/lombard-virtual-assets/images/rotate/Lombard000.png"
+      alt="lombard hauler">
+
     </div>
 
     <!-- text -->
