@@ -1,9 +1,13 @@
 <script>
   import { onMount } from 'svelte';
-  // import { createEventDispatcher } from "svelte";
-  // const dispatch = createEventDispatcher();
-  export let modalIdx; // = 'abijah-prince';
+  import MoreHauler from './MoreHauler.svelte';
+  import MoreCrawler from './MoreCrawler.svelte';
+  import views from '../lib/views.json';
+
+  export let viewIdx; 
+  export let assetPath; 
   export let isModalShowing;
+
   
 
 
@@ -46,9 +50,27 @@
       </a>
     </div><!-- / -->
 
-    <div>
-      <p>More text and images here! index: {modalIdx}</p>
-    </div>
+    {#if viewIdx === 0}
+      <MoreHauler
+        more={views[viewIdx].more}
+        viewIdx={viewIdx}
+        assetPath={assetPath}
+      />
+    {/if}
+    {#if viewIdx === 1}
+      <MoreCrawler
+        more={views[viewIdx].more}
+        viewIdx={viewIdx}
+        assetPath={assetPath}
+      />
+    {/if}
+    {#if viewIdx > 1}
+      <div>
+        <p>Placeholder</p>
+      </div>
+    {/if}
+    
+
     
 
   </div><!-- /modal-wrapper -->

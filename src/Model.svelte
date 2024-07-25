@@ -2,16 +2,16 @@
   import MoreModal from "./components/MoreModal.svelte";
 
   let frame = 0;
-  let modeIdx = 0;
+  let viewIdx = 0;
   let isModalShowing = false;
 
   const assetPath = "https://dev.digitalgizmo.com/msm-ed/lombard-virtual-assets/"
 
-  function setView(_modeIdx) {
-    modeIdx = _modeIdx;
+  function setView(_viewIdx) {
+    viewIdx = _viewIdx;
   }
 
-  function showModal(_modalIdx) {
+  function showModal() { // _viewIdx
       // event.preventDefault();
       // modalSlug = slug;
       isModalShowing = true;
