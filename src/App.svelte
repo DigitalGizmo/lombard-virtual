@@ -11,59 +11,80 @@
     modeIdx = _modeIdx;
   }
 
-  function showModal(_modalIdx) {
+  function showModal() { // _modalIdx
       // event.preventDefault();
       // modalSlug = slug;
       isModalShowing = true;
   };  
 </script>
 
-<main>
-  <div class="featured-view">
+<div id="wrapper">
+  <header>
+    <h1>The Virtual Lombard</h1>
+  </header>
+
+  <main>
+
     {#if modeIdx === 0}
-      <img width="60%" src="{assetPath}images/rotate/Lombard00{frame}.png" alt="">
-      <p>you are here. Frame: {frame}</p>
-      Rotate: 
-      <input type="range" min="0" max="9" bind:value={frame} />
+      <!-- image/video -->
+      <div id="main">
+        <img src="{assetPath}images/rotate/Lombard00{frame}.png" alt="lombard hauler 3D view">
+        Rotate: 
+        <input type="range" min="0" max="9" bind:value={frame} />
+      </div>
+
+      <!-- text -->
+      <div class="content">
+        <h1>The Lombard Hauler</h1>
+        <p>Explore the Lombard Hauler and learn what makes it work. Rotate the full view and explore the parts below.</p>
+        <p>
+          <a href="/" 
+          on:click={(e) => { e.preventDefault(); showModal();}}>
+          Learn more</a>
+        </p>
+      </div>
     {/if}
     {#if modeIdx === 1}
-      <img width="60%" src="{assetPath}images/views/crawler-track.png" alt="">
-      <p><a href="/" 
-        on:click={(e) => { e.preventDefault(); showModal(1);}}>
-        Learn more</a></p>
+
+      <!-- image/video -->
+      <div id="main">
+        <img src="{assetPath}images/views/crawler-track.png" alt="lombard crawler track">
+        <p>see it crawl [button]</p>
+      </div>
+
+      <!-- text -->
+      <div class="content">
+        <h1>The Crawler Track</h1>
+        <p> something to say about the tracks</p>
+        <p>
+          <a href="/" 
+          on:click={(e) => { e.preventDefault(); showModal();}}>
+          Learn more</a>
+        </p>
+      </div>
+
     {/if}
+  
+  </main>
 
-  </div>
-
-  <ul>
-    <li><a href="/"
-      on:click={(e) => { e.preventDefault(); setView(1);}}>
-      Treads</a></li>
-    <li>Engine</li>
-    <li>Steering</li>
-    <li>Brakes</li>
-  </ul>
-  <p>back to <a href="/"
-    on:click={(e) => { e.preventDefault(); setView(0);}}>
-    main view</a>
-    - modeIdx: {modeIdx}
-  </p>
+  <nav>
+    <ul>
+      <li class="overview"><a href="/"
+    on:click={(e) => { e.preventDefault(); setView(0);}}>Overview/Start</a></li>
+      <li class="track"><a href="/"
+      on:click={(e) => { e.preventDefault(); setView(1);}}>Crawler Track</a></li>
+      <li class="skis"><a href="/">Steering Skis</a></li>
+      <li class="engine"><a href="/">Gas Engine</a></li>
+      <li class="brakes"><a href="/">Brake System</a></li>
+    </ul>
+  </nav>
 
   {#if isModalShowing}
     <MoreModal 
-      modalIdx=1
+      modalIdx={modeIdx}
       bind:isModalShowing 
     />
-    <!-- slug={modalSlug}
-    modalType={modalType} -->
-
   {/if}
 
-</main>
-
-<style>
-  .featured-view {
-    border:1px solid black;
-  }
-</style>
+</div>
 
