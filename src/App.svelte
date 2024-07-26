@@ -34,7 +34,7 @@
         <p>see it crawl [button]</p>
       {/if}
       {#if viewIdx === 2}
-        <img src="{assetPath}images/views/skis.png" alt="lombard stering">
+        <img src="{assetPath}images/views/skis.png" alt="lombard steering">
         <p>see it crawl [button]</p>
       {/if}
       {#if viewIdx === 3}
@@ -59,26 +59,42 @@
     </div>
   </main>
 
-  <nav>
+  <nav class="menu">
     <ul>
-      <li class="overview">
+      <li>
         <a href="/"
-          on:click={(e) => { e.preventDefault(); setView(0);}}>Overview/Start</a>
+          on:click={(e) => { e.preventDefault(); setView(0);}}>
+          <img src="{assetPath}images/rotate/Lombard00{frame}.png" alt="lombard hauler 3D view">
+          <h3>Overview/Start</h3>  
+        </a>
       </li>
-      <li class="track">
+      <li>
         <a href="/"
-          on:click={(e) => { e.preventDefault(); setView(1);}}>Crawler Track</a>
+          on:click={(e) => { e.preventDefault(); setView(1);}}>
+          <img src="{assetPath}images/views/crawler-track.png" alt="lombard crawler track">
+          <h3>Crawler Track</h3>
+        </a>
       </li>
-      <li class="skis">
+      <li>
         <a href="/"
-          on:click={(e) => { e.preventDefault(); setView(2);}}>Steering Skis</a></li>
-      <li class="engine">
-        <a href="/"
-          on:click={(e) => { e.preventDefault(); setView(3);}}>Gas Engine</a>
+          on:click={(e) => { e.preventDefault(); setView(2);}}>
+          <img src="{assetPath}images/views/skis.png" alt="lombard steering">
+          <h3>Steering Skis</h3>            
+        </a>
       </li>
-      <li class="brakes">
+      <li>
         <a href="/"
-          on:click={(e) => { e.preventDefault(); setView(4);}}>Brake System</a>
+          on:click={(e) => { e.preventDefault(); setView(3);}}>
+          <img src="{assetPath}images/views/engine.png" alt="lombard gas engine">
+          <h3>Gas Engine</h3>
+        </a>
+      </li>
+      <li>
+        <a href="/"
+          on:click={(e) => { e.preventDefault(); setView(4);}}>
+          <img src="{assetPath}images/rotate/Lombard00{frame}.png" alt="lombard hauler 3D view">
+          <h3>Brake System</h3>
+        </a>
       </li>
     </ul>
   </nav>
