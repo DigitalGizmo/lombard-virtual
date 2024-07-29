@@ -122,7 +122,7 @@
     top: 40vh;
     right: 40vh;
   }
-  .gas {
+  .engine {
     top: 60vh;
     right: 60vh;
   }

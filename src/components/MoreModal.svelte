@@ -52,15 +52,14 @@
 
     {#if viewIdx === 0}
       <MoreHauler
-        more={views[viewIdx].more}
-        viewIdx={viewIdx}
+        view={views[viewIdx]}
         assetPath={assetPath}
       />
     {/if}
+    <!-- viewIdx={viewIdx} -->
     {#if viewIdx === 1}
       <MoreCrawler
-        more={views[viewIdx].more}
-        viewIdx={viewIdx}
+        view={views[viewIdx]}
         assetPath={assetPath}
       />
     {/if}

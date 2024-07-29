@@ -5,7 +5,10 @@
     "text": "Explore the Lombard Hauler and learn what makes it work. Rotate the full view and explore the parts below.",
     "more": {
       "para1": "Hauler. There could be multiple paragraphs and captions in json",
-      "para2": "Crawler. In fact, here's another one"
+      "para2": "Hauler. In fact, here's another one",
+      "cap1": "Here's what cars were like in the day",
+      "cap2": "For you, on ice!",
+      "cap3": "The room where it happened"
     }
   },
   {
@@ -14,7 +17,10 @@
     "text": "See how the crawler moves.",
     "more": {
       "para1": "Crawler. There could be multiple paragraphs and captions in json",
-      "para2": "Crawler. In fact, here's another one"
+      "para2": "Crawler. In fact, here's another one",
+      "cap1": "-",
+      "cap2": "--",
+      "cap3": "---"
     }
   },
   {
@@ -23,13 +29,13 @@
     "text": "Which way are we going"
   },
   {
-    "slug": "gas",
+    "slug": "engine",
     "title": "Gas Engine",
     "text": "Hold on to you hat"
   },
   {
     "slug": "brakes",
-    "title": "Breaks",
+    "title": "Brakes",
     "text": "Not so fast there"
   }
 ]
