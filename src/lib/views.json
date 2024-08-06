@@ -4,11 +4,12 @@
     "title": "The Lombard Hauler",
     "text": "Explore the Lombard Hauler and learn what makes it work. Rotate the full view and explore the parts below.",
     "more": {
-      "para1": "Hauler. There could be multiple paragraphs and captions in json",
-      "para2": "Hauler. In fact, here's another one",
-      "cap1": "Here's what cars were like in the day",
-      "cap2": "For you, on ice!",
-      "cap3": "The room where it happened"
+      "para1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "para2": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+      "para3": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.",
+      "cap1": "This is the caption for the first picture",
+      "cap2": "This is the caption for the second picture",
+      "cap3": "This is the caption for the third picture"
     }
   },
   {
@@ -26,16 +27,37 @@
   {
     "slug": "steering",
     "title": "Steering",
-    "text": "Which way are we going"
+    "text": "Which way are we going",
+    "more": {
+      "para1": "Steering. There could be multiple paragraphs and captions in json",
+      "para2": "Steering. In fact, here's another one",
+      "cap1": "-",
+      "cap2": "--",
+      "cap3": "---"
+    }
   },
   {
     "slug": "engine",
     "title": "Gas Engine",
-    "text": "Hold on to you hat"
+    "text": "Hold on to your hat",
+    "more": {
+      "para1": "Engine. There could be multiple paragraphs and captions in json",
+      "para2": "Engine. In fact, here's another one",
+      "cap1": "-",
+      "cap2": "--",
+      "cap3": "---"
+    }
   },
   {
     "slug": "brakes",
     "title": "Brakes",
-    "text": "Not so fast there"
+    "text": "Not so fast there",
+    "more": {
+      "para1": "Brakes. There could be multiple paragraphs and captions in json",
+      "para2": "Brakes. In fact, here's another one",
+      "cap1": "-",
+      "cap2": "--",
+      "cap3": "---"
+    }
   }
 ]

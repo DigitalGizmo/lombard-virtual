@@ -35,15 +35,15 @@
       {/if}
       {#if viewIdx === 2}
         <img src="{assetPath}images/views/skis.png" alt="lombard steering">
-        <p>see it crawl [button]</p>
+        <p>see it steer [button]</p>
       {/if}
       {#if viewIdx === 3}
         <img src="{assetPath}images/views/engine.png" alt="lombard gas engine">
-        <p>see it crawl [button]</p>
+        <p>see it rev [button]</p>
       {/if}
       {#if viewIdx === 4}
         <img src="{assetPath}images/views/crawler-track.png" alt="lombard brakes">
-        <p>see it crawl [button]</p>
+        <p>see it stop [button]</p>
       {/if}
     </div>
 
@@ -108,31 +108,3 @@
   {/if}
 
 </div>
-
-<style>
-  .hauler{
-    top: 12vh;
-    right: 5vh;
-  }
-  .crawler {
-    top: 30vh;
-    right: 50vh;
-  }
-  .steering {
-    top: 40vh;
-    right: 40vh;
-  }
-  .engine {
-    top: 60vh;
-    right: 60vh;
-  }
-  .brakes {
-    top: 50vh;
-    right: 50vh;
-  }
-  .nav-selected {
-    background-color: grey;
-    color: lime;
-  }
-</style>
-

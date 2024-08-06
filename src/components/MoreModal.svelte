@@ -48,7 +48,7 @@
       <a href="/" on:click={(e) => { e.preventDefault(); isModalShowing = false;}}>
         <span  id="close-button" class="close"></span>
       </a>
-    </div><!-- / -->
+    </div><!-- /modal-close -->
 
     {#if viewIdx === 0}
       <MoreHauler
@@ -56,21 +56,30 @@
         assetPath={assetPath}
       />
     {/if}
-    <!-- viewIdx={viewIdx} -->
     {#if viewIdx === 1}
       <MoreCrawler
         view={views[viewIdx]}
         assetPath={assetPath}
       />
     {/if}
-    {#if viewIdx > 1}
-      <div>
-        <p>Placeholder</p>
-      </div>
+    {#if viewIdx === 2}
+      <MoreSteering
+        view={views[viewIdx]}
+        assetPath={assetPath}
+      />
     {/if}
-    
-
-    
+    {#if viewIdx === 3}
+      <MoreEngine
+        view={views[viewIdx]}
+        assetPath={assetPath}
+      />
+    {/if}
+    {#if viewIdx === 4}
+      <MoreBrakes
+        view={views[viewIdx]}
+        assetPath={assetPath}
+      />
+    {/if}
 
   </div><!-- /modal-wrapper -->
 </div> <!-- /#modal-container /.modal-basic --> <!-- /#modal-container /.modal-basic -->
