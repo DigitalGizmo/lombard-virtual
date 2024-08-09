@@ -2,6 +2,9 @@
   import { onMount } from 'svelte';
   import MoreHauler from './MoreHauler.svelte';
   import MoreCrawler from './MoreCrawler.svelte';
+  import MoreCrawler from './MoreSteering.svelte';
+  import MoreCrawler from './MoreEngine.svelte';
+  import MoreCrawler from './MoreBrakes.svelte';
   import views from '../lib/views.json';
 
   export let viewIdx; 
