@@ -5,7 +5,8 @@
   let viewIdx = 0;
   let isModalShowing = false;
 
-  const assetPath = "https://dev.digitalgizmo.com/msm-ed/lombard-virtual-assets/"
+  const assetPath = "https://dev.digitalgizmo.com/msm-ed/lombard-virtual-assets/";
+  // const assetPath = "";
 
   function setView(_viewIdx) {
     viewIdx = _viewIdx;
@@ -64,7 +65,7 @@
       <li>
         <a href="/"
           on:click={(e) => { e.preventDefault(); setView(0);}}>
-          <img src="{assetPath}images/rotate/Lombard00{frame}.png" alt="lombard hauler 3D view">
+          <img src="{assetPath}images/rotate/Lombard000.png" alt="lombard hauler 3D view">
           <h3 class="{(viewIdx === 0) ? 'nav-selected' : ''}">Overview/Start</h3>  
         </a>
       </li>
@@ -92,7 +93,7 @@
       <li>
         <a href="/"
           on:click={(e) => { e.preventDefault(); setView(4);}}>
-          <img src="{assetPath}images/rotate/Lombard00{frame}.png" alt="lombard hauler 3D view">
+          <img src="{assetPath}images/rotate/Lombard000.png" alt="lombard hauler 3D view">
           <h3 class="{(viewIdx === 4) ? 'nav-selected' : ''}">Brake System</h3>
         </a>
       </li>

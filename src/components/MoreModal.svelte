@@ -66,16 +66,18 @@
       />
     {/if}
     {#if viewIdx === 2}
-      <MoreSteering
+      Sterring yet to co,
+      <!-- <MoreSteering
         view={views[viewIdx]}
         assetPath={assetPath}
-      />
+      /> -->
     {/if}
     {#if viewIdx === 3}
-      <MoreEngine
+      Engine yet to come
+      <!-- <MoreEngine
         view={views[viewIdx]}
         assetPath={assetPath}
-      />
+      /> -->
     {/if}
     {#if viewIdx === 4}
       <MoreBrakes
