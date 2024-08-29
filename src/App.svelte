@@ -5,7 +5,7 @@
   let viewIdx = 0;
   let isModalShowing = false;
 
-  const assetPath = "https://dev.digitalgizmo.com/msm-ed/lombard-virtual-assets/";
+  const assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
   // const assetPath = "";
 
   function setView(_viewIdx) {
