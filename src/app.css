@@ -12,6 +12,7 @@ a:hover {
 	color: #FFDB1F;
 }
 
+/* TITLE AREA */
 header {
 	background-color: #656565;
 	text-align: center;
@@ -20,6 +21,7 @@ header {
 	width: 100%;
 	height: 8vh;
 	margin: 0;
+  top: 0;
 	position: absolute;
 }
 
@@ -31,14 +33,67 @@ header h1 {
 	word-spacing: .25em;
 }
 
+/* MAIN CONTENT AREA */
 #main {
-	height: 80vh;
+	height: 72vh;
+  margin-top: 8vh;
 }
 
+#main img {
+  width: 100%;
+  max-height: 100%;
+}
+
+/* content box on the overview image */
+.content {
+  position: fixed;
+  top: 12vh;
+  right: 5vh;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  max-width: 30%;
+  min-width: 400px;
+  padding: 2%;
+}
+
+/* -- position the intro text box --*/
+  .hauler{
+    top: 10vh;
+    left: 3vw;
+  }
+  .crawler {
+    top: 10vh;
+    right: 3vw;
+  }
+  .steering {
+    top: 50vh;
+    left: 3vw;
+  }
+  .engine {
+    top: 50vh;
+    right: 3vw;
+  }
+  .brakes {
+    top: 50vh;
+    left: 3vw;
+  }
+
+/*  button used to pause/play the video/animation */
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* NAV AREA */
 nav.menu {
   background-color: #656565;
   width: 100%;
-  height: 180px;
+  height: 20vh;
 }
 
 nav.menu ul {
@@ -56,13 +111,9 @@ nav.menu ul li {
 }
 
 nav.menu ul li a img {
-	max-width: 100%;
-  margin-top: 30px;
-  min-height: 100%;
-}
-
-nav.menu ul li a h3:hover {
-	color: #FFDB1F;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 40px;
 }
 
 nav.menu ul li a img:hover {
@@ -80,9 +131,14 @@ nav.menu ul li h3 {
   position: absolute;
   text-align: center;
   width: 100%;
+  height: 40px;
   line-height: 1.8em;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+}
+
+nav.menu ul li a h3:hover {
+  color: #FFDB1F;
 }
 
 .nav-selected {
@@ -90,35 +146,7 @@ nav.menu ul li h3 {
   color: lime;
 }
 
-/* Style the img: 100% width and height to cover the entire window */
-#main img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-/* Add some content at the bottom of the video/page */
-.content {
-  position: fixed;
-  top: 12vh;
-  right: 5vh;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  max-width: 30%;
-  min-width: 400px;
-  padding: 2%;
-}
-
-/* Style the button used to pause/play the video */
-#myBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-}
-
+/* MORE POPS */
 #modal-overlay {
   background: url(./assets/overlay.png) repeat;
   cursor: pointer;
@@ -221,25 +249,3 @@ div.more-modal img {
  	color: lightgray;
  	font-size: .75em;
  }
-/* -- position the intro text box --*/
-  .hauler{
-    top: 10vh;
-    left: 3vw;
-  }
-  .crawler {
-    top: 10vh;
-    right: 3vw;
-  }
-  .steering {
-    top: 50vh;
-    left: 3vw;
-  }
-  .engine {
-    top: 50vh;
-    right: 3vw;
-  }
-  .brakes {
-    top: 50vh;
-    left: 3vw;
-  }
-
