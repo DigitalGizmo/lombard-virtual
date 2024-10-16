@@ -1,9 +1,11 @@
 <script>
   import MoreModal from "./components/MoreModal.svelte";
   import views from './lib/views.json';
-  let frame = 0;
+  import LombardView from "./components/LombardView.svelte";
+  // let frame = 0;
   let viewIdx = 0;
   let isModalShowing = false;
+  let isPreview = true;
 
   const assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
   // const assetPath = "";
@@ -15,6 +17,13 @@
   function showModal() { 
       isModalShowing = true;
   };  
+
+  function setPreview() {
+    return function() {
+      isPreview = true;
+    }
+  }
+  
 </script>
 
 <div id="wrapper">
@@ -26,9 +35,10 @@
     <!-- image/video -->
     <div id="main">
       {#if viewIdx === 0}
-        <img src="{assetPath}images/rotate/Lombard00{frame}.png" alt="lombard hauler 3D view">
-        Rotate: 
-        <input type="range" min="0" max="9" bind:value={frame} />
+        <LombardView
+          assetPath={assetPath}
+          isPreview={isPreview}
+        />
       {/if}
       {#if viewIdx === 1}
         <img src="{assetPath}images/views/crawler-track.png" alt="lombard crawler track">
@@ -64,7 +74,11 @@
     <ul>
       <li>
         <a href="/"
-          on:click={(e) => { e.preventDefault(); setView(0);}}>
+          on:click={(e) => { 
+            e.preventDefault(); setView(0);
+            setPreview;
+            console.log('isPreview: ' + isPreview)
+          }}>
           <img src="{assetPath}images/views/lombard-thm.png" alt="lombard hauler 3D view">
           <h3 class="{(viewIdx === 0) ? 'nav-selected' : ''}">Overview/Start</h3>  
         </a>
