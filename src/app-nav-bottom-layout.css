@@ -22,7 +22,7 @@ header {
 	height: 8vh;
 	margin: 0;
   top: 0;
-/*	position: absolute;*/
+	position: absolute;
 }
 
 header h1 {
@@ -34,27 +34,21 @@ header h1 {
 }
 
 /* MAIN CONTENT AREA */
-main {
-  display: grid;
-  grid-template-columns: 80vw 20vw;
-  grid-template-rows: 92vh;
-/*  margin-top: 8vh;*/
-}
-
 #main {
-  grid-column: 1;
-  grid-row: 1;
-  position: relative;
+	height: 72vh;
+  margin-top: 8vh;
 }
 
 #main img {
-  max-width: 100%;
+  width: 100%;
   max-height: 100%;
 }
 
 /* content box on the overview image */
 .content {
-  position: absolute;
+  position: fixed;
+  top: 12vh;
+  right: 5vh;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   max-width: 30%;
@@ -63,30 +57,26 @@ main {
 }
 
 /* -- position the intro text box --*/
-.hauler{
-  top: 60vh;
-  left: 3vw;
-}
-.crawler {
-  top: 60vh;
-  left: 3vw;
-}
-.steering {
-  top: 60vh;
-  left: 3vw;
-}
-.engine {
-  top: 60vh;
-  left: 3vw;
-}
-.brakes {
-  top: 60vh;
-  left: 3vw;
-}
-
-.controls {
-  margin: 5em 0 0 3em;
-}
+  .hauler{
+    top: 10vh;
+    left: 3vw;
+  }
+  .crawler {
+    top: 10vh;
+    right: 3vw;
+  }
+  .steering {
+    top: 50vh;
+    left: 3vw;
+  }
+  .engine {
+    top: 50vh;
+    right: 3vw;
+  }
+  .brakes {
+    top: 50vh;
+    left: 3vw;
+  }
 
 /*  button used to pause/play the video/animation */
 #myBtn {
@@ -102,29 +92,28 @@ main {
 /* NAV AREA */
 nav.menu {
   background-color: #656565;
-  grid-column: 2;
-  grid-row: 1;
+  width: 100%;
+  height: 20vh;
 }
 
 nav.menu ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-gap: 1px;
 }
 
 nav.menu ul li {
-  height: 18vh;
-}
-
-nav.menu ul li a {
-  display: block;
-  max-height: 100%;
+  position: relative;
+  line-height: 0;
 }
 
 nav.menu ul li a img {
   max-width: 100%;
-  max-height: 15vh;
-/*  margin-top: 40px;*/
+  max-height: 100%;
+  margin-top: 40px;
 }
 
 nav.menu ul li a img:hover {
@@ -132,20 +121,20 @@ nav.menu ul li a img:hover {
 
 nav.menu ul li h3 {
 	background-color: #656565;
-/*  top: 0;*/
-/*  border-right: 1px solid lightgray;*/
+  top: 0;
+  border-right: 1px solid lightgray;
   color: white;
   font-size: 1.25em;
   font-weight: 200;
-/*  left: 0;*/
+  left: 0;
   margin: 0;
-/*  position: absolute;*/
+  position: absolute;
   text-align: center;
   width: 100%;
-  height: 20px;
-/*  line-height: 1.8em;
+  height: 40px;
+  line-height: 1.8em;
   display: -webkit-box;
-  -webkit-box-orient: vertical;*/
+  -webkit-box-orient: vertical;
 }
 
 nav.menu ul li a h3:hover {
