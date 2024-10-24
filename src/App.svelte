@@ -9,7 +9,7 @@
   // let frame = 0;
   let viewIdx = 0;
   let isModalShowing = false;
-  let isPreview = true;
+  // let isPreview = true;
 
   const assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
   // const assetPath = "";
@@ -74,11 +74,7 @@
       <ul>
         <li>
           <a href="/"
-            on:click={(e) => { 
-              e.preventDefault(); setView(0);
-              setPreview;
-              console.log('isPreview: ' + isPreview)
-            }}>
+            on:click={(e) => { e.preventDefault(); setView(0);}}>
             <h3 class="{(viewIdx === 0) ? 'nav-selected' : ''}">Overview/Start</h3>
             <img src="{assetPath}images/views/lombard-thm.png" alt="lombard hauler 3D view">
           </a>
