@@ -1,7 +1,11 @@
 <script>
   import MoreModal from "./components/MoreModal.svelte";
   import views from './lib/views.json';
-  import LombardView from "./components/LombardView.svelte";
+  import ViewLombard from "./components/ViewLombard.svelte";
+  import ViewCrawler from "./components/ViewCrawler.svelte";
+  import ViewSteering from "./components/ViewSteering.svelte";
+  import ViewEngine from "./components/ViewEngine.svelte";
+  import ViewBrakes from "./components/ViewBrakes.svelte";
   // let frame = 0;
   let viewIdx = 0;
   let isModalShowing = false;
@@ -17,13 +21,6 @@
   function showModal() { 
       isModalShowing = true;
   };  
-
-  function setPreview() {
-    return function() {
-      isPreview = true;
-    }
-  }
-  
 </script>
 
 <div id="wrapper">
@@ -35,39 +32,43 @@
     <!-- image/video -->
     <div id="main">
       {#if viewIdx === 0}
-        <LombardView
+        <ViewLombard
           assetPath={assetPath}
-          isPreview={isPreview}
+          thisView={views[0]}
+          showModal={showModal}
         />
       {/if}
       {#if viewIdx === 1}
-        <img src="{assetPath}images/views/crawler-track.png" alt="lombard crawler track">
-        <p class="controls">see it crawl [button]</p>
+        <ViewCrawler
+          assetPath={assetPath}
+          thisView={views[1]}
+          showModal={showModal}
+        />
       {/if}
       {#if viewIdx === 2}
-        <img src="{assetPath}images/views/skis.png" alt="lombard steering">
-        <p class="controls">see it steer [button]</p>
+        <ViewSteering
+          assetPath={assetPath}
+          thisView={views[2]}
+          showModal={showModal}
+        />
       {/if}
       {#if viewIdx === 3}
-        <img src="{assetPath}images/views/engine.png" alt="lombard gas engine">
-        <p class="controls">see it rev [button]</p>
+        <ViewSteering
+          assetPath={assetPath}
+          thisView={views[3]}
+          showModal={showModal}
+        />
       {/if}
       {#if viewIdx === 4}
-        <img src="{assetPath}images/views/brakes.png" alt="lombard brakes">
-        <p class="controls">see it stop [button]</p>
+        <ViewBrakes
+          assetPath={assetPath}
+          thisView={views[4]}
+          showModal={showModal}
+        />
       {/if}
     </div><!-- /#main -->
 
-    <!-- text -->
-    <div class="content {views[viewIdx].slug}">
-      <h1>{views[viewIdx].title}</h1>
-      <p>{views[viewIdx].text}</p>
-      <p>
-        <a href="/" 
-        on:click={(e) => { e.preventDefault(); showModal();}}>
-        Learn more</a>
-      </p>
-    </div><!-- /content -->
+    <!-- Title, blurb, scrubber div now in each view component -->
 
     <nav class="menu">
       <ul>
