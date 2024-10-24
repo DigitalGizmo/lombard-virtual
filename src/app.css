@@ -35,10 +35,18 @@ header h1 {
 
 /* MAIN CONTENT AREA */
 main {
+  background-color: indianred;
   display: grid;
   grid-template-columns: 80vw 20vw;
   grid-template-rows: 92vh;
-/*  margin-top: 8vh;*/
+}
+
+@media screen and (max-aspect-ratio: 16/9) {
+  main {
+    background-color: greenyellow;
+    grid-template-columns: 100vw;
+    grid-template-rows: auto 12vh;
+  }
 }
 
 #main {
@@ -64,23 +72,23 @@ main {
 
 /* -- position the intro text box --*/
 .hauler{
-  top: 60vh;
+  top: 30%;
   left: 3vw;
 }
 .crawler {
-  top: 60vh;
+  top: 30%;
   left: 3vw;
 }
 .steering {
-  top: 60vh;
+  top: 30%;
   left: 3vw;
 }
 .engine {
-  top: 60vh;
+  top: 30%;
   left: 3vw;
 }
 .brakes {
-  top: 60vh;
+  top: 30%;
   left: 3vw;
 }
 
@@ -106,6 +114,13 @@ nav.menu {
   grid-row: 1;
 }
 
+@media screen and (max-aspect-ratio: 16/9) {
+  nav.menu {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
 nav.menu ul {
   list-style-type: none;
   margin: 0;
@@ -114,6 +129,14 @@ nav.menu ul {
 
 nav.menu ul li {
   height: 18vh;
+}
+
+@media screen and (max-aspect-ratio: 16/9) {
+  nav.menu ul li {
+    display: inline-block;
+    width: 19%;
+    height: unset;
+  }
 }
 
 nav.menu ul li a {

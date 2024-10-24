@@ -53,7 +53,7 @@
         />
       {/if}
       {#if viewIdx === 3}
-        <ViewSteering
+        <ViewEngine
           assetPath={assetPath}
           thisView={views[3]}
           showModal={showModal}
