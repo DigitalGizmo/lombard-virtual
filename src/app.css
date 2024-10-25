@@ -39,6 +39,7 @@ main {
   display: grid;
   grid-template-columns: 80vw 20vw;
   grid-template-rows: 92vh;
+  overflow: hidden; /* Hide scrollbars */
 }
 
 @media screen and (max-aspect-ratio: 8/5) {
@@ -46,6 +47,7 @@ main {
 /*    background-color: greenyellow;*/
     grid-template-columns: 100vw;
     grid-template-rows: auto auto;
+    overflow: scroll; /* Hide scrollbars */
   }
 }
 
