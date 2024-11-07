@@ -27,10 +27,10 @@
   {
     "slug": "steering",
     "title": "Steering",
-    "text": "Which way are we going",
+    "text": "Lorem ipsum",
     "more": {
-      "para1": "Steering. There could be multiple paragraphs and captions in json",
-      "para2": "Steering. In fact, here's another one",
+      "para1": "The Lombard Tractor-Truck was designed to pull heavy sled-trains loaded with logs or pulpwood over ice and snow roads. The “steering sled” made up of wood skis and castings is very similar to the skis found on a typical logging sled of the era.",
+      "para2": "When the driver turns the steering wheel a pinion gear turns a bevel gear attached to the steering drum shaft. As the steering drum shaft rotates one steering chain is tightened while the other is loosened causing the steering quadrant to pivot the skis in the direction the driver desires to go. The “steering sled” could be replaced by wheels if needed.",
       "cap1": "-",
       "cap2": "--",
       "cap3": "---"

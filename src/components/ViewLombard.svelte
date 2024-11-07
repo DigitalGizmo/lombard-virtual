@@ -17,7 +17,7 @@
 </script>
 
 <div >
-  <img src="{assetPath}images/rotate/Lombard{zFrame}.png" 
+  <img src="{assetPath}images/rotate/Lombard{zFrame}.jpg" 
     alt="lombard hauler 3D view">
 </div>
   

@@ -7,7 +7,7 @@
 </script>
 
 <div >
-  <img src="{assetPath}images/views/brakes.png" 
+  <img src="{assetPath}images/views/brakes.jpg" 
     alt="lombard brakes">
 </div>
   

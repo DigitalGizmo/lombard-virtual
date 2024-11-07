@@ -7,7 +7,7 @@
 </script>
 
 <div >
-  <img src="{assetPath}images/views/crawler-track.png" 
+  <img src="{assetPath}images/views/crawler-track.jpg" 
     alt="lombard crawler tracks">
 </div>
   

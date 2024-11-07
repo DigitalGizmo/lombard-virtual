@@ -7,7 +7,7 @@
 </script>
 
 <div >
-  <img src="{assetPath}images/views/engine.png" 
+  <img src="{assetPath}images/views/engine.jpg" 
     alt="lombard gas engine">
     <p class="controls">see it rev [button]</p>
 </div>

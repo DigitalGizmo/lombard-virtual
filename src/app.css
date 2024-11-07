@@ -72,25 +72,28 @@ main {
   padding: 2%;
 }
 
+.content h1 {
+  margin: 0;
+}
 /* -- position the intro text box --*/
 .hauler{
-  top: 30%;
+  top: 3%;
   left: 3vw;
 }
 .crawler {
-  top: 30%;
+  top: 10%;
   left: 3vw;
 }
 .steering {
-  top: 30%;
+  top: 10%;
   left: 3vw;
 }
 .engine {
-  top: 30%;
+  top: 10%;
   left: 3vw;
 }
 .brakes {
-  top: 30%;
+  top: 50%;
   left: 3vw;
 }
 
