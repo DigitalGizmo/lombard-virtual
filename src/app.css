@@ -26,7 +26,7 @@ header {
 }
 
 header h1 {
-	color: #FFDB1F;
+	color: #F5B901;
 	font-weight: 300;
 	font-size: 7vh;
 	margin: 0;
@@ -302,7 +302,7 @@ div.more-modal {
 }
 
 div.more-modal h2 {
-	color: #F3D747;
+	color: #F5B901;
 	margin: 0;
 }
 
