@@ -82,7 +82,7 @@
         <li>
           <a href="/"
             on:click={(e) => { e.preventDefault(); setView(1);}}>
-            <h3 class="{(viewIdx === 1) ? 'nav-selected' : ''}">Crawler Track</h3>
+            <h3 class="{(viewIdx === 1) ? 'nav-selected' : ''}">Crawler Tracks</h3>
             <img src="{assetPath}images/views/crawler-track-thm.jpg" alt="lombard crawler track">
           </a>
         </li>

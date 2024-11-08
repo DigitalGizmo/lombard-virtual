@@ -7,8 +7,19 @@
 
 <div class="more-modal">
   <h2>{view.title}</h2>
-  <img src="{assetPath}images/views/crawler-track.png" alt="lombard crawler track">
-  <p class="caption">images are us</p>
 
-  <p>{view.more.para1}</p>
+  <div class="more-img">
+    <img src="{assetPath}images/views/crawler-track.png" alt="lombard crawler track or lag bed">
+    <p class="caption">{view.more.cap1}</p>
+  </div>
+
+  <p class="more-text">{view.more.para1}</p>
+
+  <div class="more-img">
+    <img src="{assetPath}images/more/crawler-callouts.jpg" alt="diagram of component parts of the lag bed.">
+    <p class="caption">{view.more.cap2}</p>
+  </div>
+
+  <p class="more-text">{view.more.para2}</p>  
+
 </div>

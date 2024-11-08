@@ -15,12 +15,13 @@
 <div class="content {thisView.slug}">
   <h1>{thisView.title}</h1>
   <p>{thisView.text} </p>
-  Rotate: 
-  <input 
-    type="range" min="0" max="9" bind:value={frame} />
-  <p><a href="/" 
+  <p>
+    <a href="/" 
       on:click={(e) => { e.preventDefault(); showModal();}}>
-      Learn more</a>
+      Learn more
+    </a>
   </p>
-</div>
+  <label for="rotate-engine">Rotate 3-D View:</label>
+  <input id="rotate-engine" type="range" min="0" max="9" bind:value={frame} />
 
+</div>

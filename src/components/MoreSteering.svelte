@@ -7,8 +7,18 @@
 
 <div class="more-modal">
   <h2>{view.title}</h2>
-  <img src="{assetPath}images/views/steering.jpg" alt="">
-  <p class="caption">image for Steering</p>
 
-  <p>{view.more.para1}</p>
+  <div class="more-img">
+    <img src="{assetPath}images/more/horse-drawn-sleds.jpg" alt="horse and oxen drawing logs on sleds">
+    <p class="caption">{view.more.cap1}</p>
+  </div>
+
+  <p class="more-text">{view.more.para1}</p>
+
+  <div class="more-img">
+    <img src="{assetPath}images/more/steering-callouts.jpg" alt="diagram of steering system">
+    <p class="caption">{view.more.cap2}</p>
+  </div>
+
+  <p class="more-text">{view.more.para2}</p>
 </div>

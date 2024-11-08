@@ -8,19 +8,18 @@
 <div class="more-modal">
 
   <h2>{view.title}</h2>
-  <img src="{assetPath}images/more/hauler-alvins.jpg" alt="buggy car">
-  <p class="caption">{view.more.cap1}</p>
+  <div class="more-img">
+    <img src="{assetPath}images/more/hauler-factory.jpg" alt="photo of factory">
+    <p class="caption">{view.more.cap1}</p>
+  </div>
 
-  <p>{view.more.para1}</p>
-  
-  <img src="{assetPath}images/more/hauler-factory.jpg" alt="factory">
-  <p class="caption">{view.more.cap2}</p>
+  <p class="more-text">{view.more.para1}</p>
 
-  <p>{view.more.para2}</p>
+  <div class="more-img">
+    <img src="{assetPath}images/more/hauler-on-snow.png" alt="antique photograph of Lombard Hauler on snow">  
+    <p class="caption">{view.more.cap2}</p>
+  </div>
 
-  <img src="{assetPath}images/more/hauler-on-snow.png" alt="factory">
-  <p class="caption">{view.more.cap3}</p>
-
-  <p>{view.more.para3}</p>
+  <p class="more-text">{view.more.para2}</p>
 
 </div>

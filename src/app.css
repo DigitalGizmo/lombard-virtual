@@ -75,6 +75,16 @@ main {
 .content h1 {
   margin: 0;
 }
+
+.content p {
+  margin-top: 0;
+}
+
+.content input {
+  vertical-align: bottom;
+  margin-bottom: 0;
+}
+
 /* -- position the intro text box --*/
 .hauler{
   top: 3%;
@@ -267,7 +277,7 @@ nav.menu ul li a h3:hover {
   content: "";
   height: 20px;
   width: 20px;
-  border-top: 2px solid #888;
+  border-top: 2px solid #c3c0c0;
   position: absolute;
   top: 6px;
   right: -8px;
@@ -285,6 +295,10 @@ nav.menu ul li a h3:hover {
 
 div.more-modal {
 	color: white;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-template-rows: auto;
+  grid-gap: 2vw;
 }
 
 div.more-modal h2 {
@@ -292,12 +306,23 @@ div.more-modal h2 {
 	margin: 0;
 }
 
-div.more-modal img {
-    width: 75%;
- }
+div.more-modal .more-img {
+  grid-column: 1;
+}
 
- div.more-modal p.caption {
- 	margin: 0.25em 0;
- 	color: lightgray;
- 	font-size: .75em;
- }
+div.more-modal .more-img img {
+  max-width: 100%;
+}
+
+div.more-modal .more-img p.caption {
+	margin: 0.25em 0;
+	color: lightgray;
+	font-size: .75em;
+}
+
+div.more-modal p.more-text {
+  grid-column: 2;
+  margin-top: 0;
+  line-height: 1.4em;
+  font-weight: 200;
+}

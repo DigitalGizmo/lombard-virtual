@@ -7,8 +7,18 @@
 
 <div class="more-modal">
   <h2>{view.title}</h2>
-  <img src="{assetPath}images/views/crawler-track.png" alt="lombard crawler track">
-  <p class="caption">image for Brakes</p>
 
-  <p>{view.more.para1}</p>
+  <div class="more-img">
+    <img src="{assetPath}images/more/brakes-callouts.jpg" alt="diagram of component parts of the Lombard's brake system">
+    <p class="caption">{view.more.cap1}</p>
+  </div>
+
+  <p class="more-text">{view.more.para1}</p>
+
+  <div class="more-img">
+    <img src="{assetPath}images/more/brakes-isolated.png" alt="diagram of component parts of the Lombard's brake system">
+    <p class="caption">{view.more.cap2}</p>
+  </div>
+
+  <p class="more-text">{view.more.para2}</p>
 </div>

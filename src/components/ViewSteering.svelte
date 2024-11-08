@@ -29,15 +29,16 @@
 <div class="content {thisView.slug}">
   <h1>{thisView.title}</h1>
   <p>{thisView.text} </p>
-  Rotate: 
-  <!-- <input on:touchstart={losePreview} -->
-  <!-- on:mousedown={losePreview} -->
-  <input 
-    type="range" min="0" max="9" bind:value={frame} />
   <p>
     <a href="/" 
       on:click={(e) => { e.preventDefault(); showModal();}}>
-      Learn more</a>
+      Learn more
+    </a>
   </p>
-</div>
 
+  <!-- <input on:touchstart={losePreview} -->
+  <!-- on:mousedown={losePreview} -->
+  <label for="rotate-steering">Rotate 3-D View:</label>
+  <input id="rotate-steering" type="range" min="0" max="9" bind:value={frame} />
+
+</div>
