@@ -8,9 +8,8 @@
 
 <!-- <div id="wrapper"></div> -->
 <!-- <div id="main"> -->
-<div class="contain-fit">
-  <img class="fit"
-    src="{assetPath}images/views/engine.jpg" 
+<div>
+  <img src="{assetPath}images/views/engine.jpg" 
     alt="lombard gas engine">
 </div>
   
@@ -27,15 +26,3 @@
   <input id="rotate-engine" type="range" min="0" max="9" bind:value={frame} />
 
 </div>
-
-<style>
-  /* .contain-fit{
-    max-width: 100%;
-    max-height: 100%;
-
-  } */
-  .fit {
-    max-width: 200px;
-    object-fit: cover;
-  } 
-</style>
