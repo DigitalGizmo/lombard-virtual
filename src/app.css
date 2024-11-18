@@ -22,7 +22,6 @@ header {
 	height: 8vh;
 	margin: 0;
   top: 0;
-/*	position: absolute;*/
 }
 
 header h1 {
@@ -35,7 +34,6 @@ header h1 {
 
 /* MAIN CONTENT AREA */
 main {
-/*  background-color: indianred;*/
   display: grid;
   grid-template-columns: 80vw 20vw;
   grid-template-rows: 92vh;
@@ -44,7 +42,6 @@ main {
 
 @media screen and (max-aspect-ratio: 8/5) {
   main {
-/*    background-color: greenyellow;*/
     grid-template-columns: 100vw;
     grid-template-rows: auto auto;
     overflow: scroll; /* Hide scrollbars */
@@ -124,7 +121,6 @@ main {
 
 /* NAV AREA */
 nav.menu {
-  background-color: #656565;
   grid-column: 2;
   grid-row: 1;
 }
@@ -137,6 +133,7 @@ nav.menu {
 }
 
 nav.menu ul {
+  background-color: #9e9e9e;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -144,7 +141,6 @@ nav.menu ul {
 }
 
 nav.menu ul li {
-/*  height: 18vh;*/
   text-align: center;
 }
 
@@ -158,13 +154,37 @@ nav.menu ul li {
 
 nav.menu ul li a {
   display: block;
-/*  max-height: 100%;*/
+  text-decoration: none;
+}
+
+nav.menu ul li h3 {
+  background-color: #9e9e9e;
+  color: white;
+  font-size: 2vh;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  margin: 0;
+  padding: .25vh;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+nav.menu ul li a h3:hover {
+  color: #FFDB1F;
+}
+
+nav.menu ul li h3.nav-selected {
+  color: #F5B901;
+}
+
+@media screen and (max-aspect-ratio: 8/5) { /* make the font smaller for vertical/mobile */
+  nav.menu ul li h3 {
+    font-size: 1.5vh;
+  }
 }
 
 nav.menu ul li a img {
-  max-width: 100%;
-  max-height: 14.8vh;
-/*  margin-top: 40px;*/
+  max-height: 15vh;
 }
 
 @media screen and (max-aspect-ratio: 8/5) {
@@ -172,40 +192,6 @@ nav.menu ul li a img {
 /*    max-width: 100%;
     max-height: auto;*/
   }
-}
-
-nav.menu ul li a img:hover {
-}
-
-nav.menu ul li h3 {
-	background-color: #9E9E9E;
-/*  top: 0;*/
-/*  border-right: 1px solid lightgray;*/
-  color: white;
-  font-size: 2vh;
-  font-weight: 400;
-/*   font-weight: 200;
- left: 0;*/
-  letter-spacing: 0.15em;
-  margin: 0;
-  padding: .25vh;
-/*  position: absolute;*/
-/*  text-align: center;*/
-  text-transform: uppercase;
-  width: 100%;
-/*  height: 30px;
-  line-height: 1.8em;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;*/
-}
-
-nav.menu ul li a h3:hover {
-  color: #FFDB1F;
-}
-
-.nav-selected {
-  background-color: grey;
-  color: lime;
 }
 
 /* MORE POPS */
@@ -255,8 +241,6 @@ nav.menu ul li a h3:hover {
 	  z-index: 100;
 	  right: 0;
 	  top: 8vh;
-	  /*max-height: 75vh;
-	  width: 70vw;*/
 	}
 }
 
