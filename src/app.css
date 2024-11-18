@@ -51,13 +51,13 @@ main {
   }
 }
 
-#main {
+#view {
   grid-column: 1;
   grid-row: 1;
   position: relative;
 }
 
-#main img {
+#view img {
   max-width: 100%;
   max-height: 100%;
 }

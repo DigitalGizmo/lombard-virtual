@@ -30,7 +30,7 @@
 
   <main>
     <!-- image/video -->
-    <div id="main">
+    <div id="view">
       {#if viewIdx === 0}
         <ViewLombard
           assetPath={assetPath}
@@ -66,7 +66,7 @@
           showModal={showModal}
         />
       {/if}
-    </div><!-- /#main -->
+    </div><!-- /#view -->
 
     <!-- Title, blurb, scrubber div now in each view component -->
 
@@ -76,35 +76,40 @@
           <a href="/"
             on:click={(e) => { e.preventDefault(); setView(0);}}>
             <h3 class="{(viewIdx === 0) ? 'nav-selected' : ''}">Overview/Start</h3>
-            <img src="{assetPath}images/views/lombard-thm.jpg" alt="lombard hauler 3D view">
+            <img src="{assetPath}images/views/lombard-thm.jpg" 
+              class="fit" alt="lombard hauler 3D view">
           </a>
         </li>
         <li>
           <a href="/"
             on:click={(e) => { e.preventDefault(); setView(1);}}>
             <h3 class="{(viewIdx === 1) ? 'nav-selected' : ''}">Crawler Tracks</h3>
-            <img src="{assetPath}images/views/crawler-track-thm.jpg" alt="lombard crawler track">
+            <img src="{assetPath}images/views/crawler-track-thm.jpg" 
+            class="fit" alt="lombard crawler track">
           </a>
         </li>
         <li>
           <a href="/"
             on:click={(e) => { e.preventDefault(); setView(2);}}>
             <h3 class="{(viewIdx === 2) ? 'nav-selected' : ''}">Steering Skis</h3> 
-            <img src="{assetPath}images/views/steering-thm.jpg" alt="lombard steering">           
+            <img src="{assetPath}images/views/steering-thm.jpg" 
+            class="fit" alt="lombard steering">           
           </a>
         </li>
         <li>
           <a href="/"
             on:click={(e) => { e.preventDefault(); setView(3);}}>
             <h3 class="{(viewIdx === 3) ? 'nav-selected' : ''}">Gas Engine</h3>
-            <img src="{assetPath}images/views/engine-thm.jpg" alt="lombard gas engine">
+            <img src="{assetPath}images/views/engine-thm.jpg" 
+            class="fit" alt="lombard gas engine">
           </a>
         </li>
         <li>
           <a href="/"
             on:click={(e) => { e.preventDefault(); setView(4);}}>
             <h3 class="{(viewIdx === 4) ? 'nav-selected' : ''}">Brake System</h3>
-            <img src="{assetPath}images/views/brakes-thm.jpg" alt="lombard hauler 3D view">
+            <img src="{assetPath}images/views/brakes-thm.jpg" 
+            class="fit" alt="lombard hauler 3D view">
           </a>
         </li>
       </ul>
@@ -119,3 +124,10 @@
 
   </main>
 </div><!-- /wrapper -->
+
+<style>
+  .fit {
+    width: 100%;
+    object-fit: cover;
+  }
+</style>

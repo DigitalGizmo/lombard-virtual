@@ -6,10 +6,12 @@
   let frame = 0;
 </script>
 
-<div >
-  <img src="{assetPath}images/views/engine.jpg" 
+<!-- <div id="wrapper"></div> -->
+<!-- <div id="main"> -->
+<div class="contain-fit">
+  <img class="fit"
+    src="{assetPath}images/views/engine.jpg" 
     alt="lombard gas engine">
-    <p class="controls">see it rev [button]</p>
 </div>
   
 <div class="content {thisView.slug}">
@@ -25,3 +27,15 @@
   <input id="rotate-engine" type="range" min="0" max="9" bind:value={frame} />
 
 </div>
+
+<style>
+  /* .contain-fit{
+    max-width: 100%;
+    max-height: 100%;
+
+  } */
+  .fit {
+    max-width: 200px;
+    object-fit: cover;
+  } 
+</style>
