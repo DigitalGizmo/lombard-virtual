@@ -4,12 +4,22 @@
   export let showModal;
 
   let frame = 0;
+  let zFrame = '0';
+
+  $: if (frame < 10) {
+    zFrame = '00' + frame.toString();
+  } else if (frame < 100){
+    zFrame = '0' + frame.toString();
+  } else {
+    zFrame = frame.toString();
+  }
+
 </script>
 
 <!-- <div id="wrapper"></div> -->
 <!-- <div id="main"> -->
 <div>
-  <img src="{assetPath}images/views/engine.jpg" 
+  <img src="{assetPath}images/engine/{zFrame}.jpg" 
     alt="lombard gas engine">
 </div>
   
@@ -22,7 +32,7 @@
       Learn more
     </a>
   </p>
-  <label for="rotate-engine">Rotate 3-D View:</label>
-  <input id="rotate-engine" type="range" min="0" max="9" bind:value={frame} />
+  <label for="scrub">Run the engine:</label>
+  <input id="scrub" type="range" min="0" max="150" bind:value={frame} />
 
 </div>
