@@ -19,9 +19,9 @@
 <!-- <div id="wrapper"></div> -->
 <!-- <div id="main"> -->
 <div>
-  <img src="{assetPath}images/engine/bg.jpg" 
-    class="bg" alt="lombard gas engine">
-  <img src="{assetPath}images/engine/{zFrame}.jpg" 
+  <!-- <img src="{assetPath}images/engine/bg.jpg" 
+    class="bg" alt="lombard gas engine"> -->
+  <img src="{assetPath}images/engine/{zFrame}.webp" 
     class="inset" alt="lombard gas engine">
 </div>
   
@@ -35,7 +35,7 @@
     </a>
   </p>
   <label for="scrub">Run the engine:</label>
-  <input id="scrub" type="range" min="0" max="4" bind:value={frame} />
+  <input id="scrub" type="range" min="0" max="10" bind:value={frame} />
 
 </div>
 
