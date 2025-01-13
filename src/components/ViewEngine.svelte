@@ -19,8 +19,10 @@
 <!-- <div id="wrapper"></div> -->
 <!-- <div id="main"> -->
 <div>
+  <img src="{assetPath}images/engine/bg.jpg" 
+    class="bg" alt="lombard gas engine">
   <img src="{assetPath}images/engine/{zFrame}.jpg" 
-    alt="lombard gas engine">
+    class="inset" alt="lombard gas engine">
 </div>
   
 <div class="content {thisView.slug}">
@@ -33,6 +35,20 @@
     </a>
   </p>
   <label for="scrub">Run the engine:</label>
-  <input id="scrub" type="range" min="0" max="150" bind:value={frame} />
+  <input id="scrub" type="range" min="0" max="4" bind:value={frame} />
 
 </div>
+
+<style>
+  .bg {
+    position: absolute;
+  }
+
+  .inset {
+    position: relative;
+    top: 284;
+    left: 484;
+    /* transform: translate(484 284); */
+  }
+
+</style>
