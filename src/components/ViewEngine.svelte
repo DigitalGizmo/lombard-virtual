@@ -59,9 +59,9 @@
 
 <div>
   <img src="{assetPath}images/engine/Eng{zFrame}.webp" 
-    class="inset" alt="lombard gas engine">
+     alt="lombard gas engine">
 </div>
-  
+
 <div class="content {thisView.slug}">
   <h1>{thisView.title}</h1>
   <p>{thisView.text}</p>
@@ -72,31 +72,10 @@
     </a>
   </p>
   {#if isLoading}
-    <div class="loaderXX">
+    <div>
       Loading Engine... {Math.round((loadedImages / 151) * 100)}%
     </div>
-  <!-- {:else} -->
   {/if}
-    <label for="scrub">Run the engine:</label>
-    <input id="scrub" type="range" min="0" max="150" bind:value={frame} />
+  <label for="scrub">Run the engine:</label>
+  <input id="scrub" type="range" min="0" max="150" bind:value={frame} />
 </div>
-
-<style>
-  .bg {
-    position: absolute;
-  }
-
-  .inset {
-    position: relative;
-    top: 284;
-    left: 484;
-  }
-
-  .loader {
-    text-align: center;
-    padding: 1rem;
-    position: relative;
-    top: 284px;
-    left: 484px;
-  }
-</style>
