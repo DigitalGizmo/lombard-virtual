@@ -6,10 +6,11 @@
   import ViewSteering from "./components/ViewSteering.svelte";
   import ViewEngine from "./components/ViewEngine.svelte";
   import ViewBrakes from "./components/ViewBrakes.svelte";
+
   // let frame = 0;
   let viewIdx = 0;
   let isModalShowing = false;
-  // let isPreview = true;
+  let isCredits = true;
 
   const assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
   // const assetPath = "";
@@ -19,13 +20,22 @@
   }
 
   function showModal() { 
+      isCredits = false;
+      isModalShowing = true;
+  };  
+  function showCredits() { 
+      isCredits = true;
       isModalShowing = true;
   };  
 </script>
 
 <div id="wrapper">
   <header>
-    <h1>The Virtual Lombard</h1>
+    <h1>The Virtual Lombard <a href="/" 
+      on:click={(e) => { e.preventDefault(); showCredits();}}>
+      Credits
+    </a></h1>
+
   </header>
 
   <main>
@@ -66,6 +76,12 @@
           showModal={showModal}
         />
       {/if}
+      <!-- <p>
+        <a href="/" 
+          on:click={(e) => { e.preventDefault(); showModal();}}>
+          Credits
+        </a> 
+      </p> -->
     </div><!-- /#view -->
 
     <!-- Title, blurb, scrubber div now in each view component -->
@@ -118,11 +134,14 @@
       <MoreModal 
         assetPath={assetPath} 
         viewIdx={viewIdx}
+        isCredits={isCredits}
         bind:isModalShowing 
       />
     {/if}
-
+    
   </main>
+
+
 </div><!-- /wrapper -->
 
 <style>
@@ -130,4 +149,5 @@
     width: 100%;
     object-fit: cover;
   }
+
 </style>

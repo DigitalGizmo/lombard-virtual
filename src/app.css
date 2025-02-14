@@ -244,6 +244,13 @@ nav.menu ul li a img {
 	}
 }
 
+/* Don */
+.credits {
+  color: aqua;
+  max-width: 80vw;
+}
+
+
 .modal-close {
 	position: fixed;
 	right:20px;

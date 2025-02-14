@@ -5,9 +5,11 @@
   import MoreSteering from './MoreSteering.svelte';
   import MoreEngine from './MoreEngine.svelte';
   import MoreBrakes from './MoreBrakes.svelte';
+  import Credits from './Credits.svelte';
   import views from '../lib/views.json';
 
   export let viewIdx; 
+  export let isCredits;
   export let assetPath; 
   export let isModalShowing;
 
@@ -43,7 +45,9 @@
   <!-- on:keydown|preventDefault={onKeyDown} -->
 
 <div id="modal-overlay" class="">
-	<div id="modal-container" class="modal-basic">
+	<div id="modal-container" 
+    class="modal-basic {(isCredits) ? 'credits' : ''}">
+    <!-- credits class in app.css following .modal-basic -->
   <div id="modal-wrapper">
 
     <div class="modal-close">
@@ -53,36 +57,44 @@
       </a>
     </div><!-- /modal-close -->
 
-    {#if viewIdx === 0}
-      <MoreHauler
-        view={views[viewIdx]}
+    {#if isCredits}
+      <Credits
         assetPath={assetPath}
       />
+    {:else}
+      {#if viewIdx === 0}
+        <MoreHauler
+          view={views[viewIdx]}
+          assetPath={assetPath}
+        />
+      {/if}
+      {#if viewIdx === 1}
+        <MoreCrawler
+          view={views[viewIdx]}
+          assetPath={assetPath}
+        />
+      {/if}
+      {#if viewIdx === 2}
+        <MoreSteering
+          view={views[viewIdx]}
+          assetPath={assetPath}
+        />
+      {/if}
+      {#if viewIdx === 3}
+        <MoreEngine
+          view={views[viewIdx]}
+          assetPath={assetPath}
+        />
+      {/if}
+      {#if viewIdx === 4}
+        <MoreBrakes
+          view={views[viewIdx]}
+          assetPath={assetPath}
+        />
+      {/if}
+
     {/if}
-    {#if viewIdx === 1}
-      <MoreCrawler
-        view={views[viewIdx]}
-        assetPath={assetPath}
-      />
-    {/if}
-    {#if viewIdx === 2}
-      <MoreSteering
-        view={views[viewIdx]}
-        assetPath={assetPath}
-      />
-    {/if}
-    {#if viewIdx === 3}
-      <MoreEngine
-        view={views[viewIdx]}
-        assetPath={assetPath}
-      />
-    {/if}
-    {#if viewIdx === 4}
-      <MoreBrakes
-        view={views[viewIdx]}
-        assetPath={assetPath}
-      />
-    {/if}
+
 
   </div><!-- /modal-wrapper -->
 </div> <!-- /#modal-container /.modal-basic --> <!-- /#modal-container /.modal-basic -->
