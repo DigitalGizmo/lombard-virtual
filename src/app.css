@@ -194,7 +194,7 @@ nav.menu ul li a img {
   }
 }
 
-/* MORE POPS */
+/* MODAL POPS */
 #modal-overlay {
   background: url(./assets/overlay.png) repeat;
   cursor: pointer;
@@ -218,7 +218,7 @@ nav.menu ul li a img {
 /* JavaScript assigns this (or .hidden) to modal container */
 @media screen and (max-width: 799px) { /* displays smaller than 800px */
 	.modal-basic {
-	  display: block;
+    display: block;
 	  overflow-x: hidden;
 	  overflow-y: scroll;
 	  position: fixed;/* this positions the modal window relative to viewport, it won't scroll with the page */  
@@ -235,25 +235,27 @@ nav.menu ul li a img {
 	  display: block;
 	  left: 0;
 	  margin: auto;
-	  overflow-x: hidden;
+/*	  overflow-x: hidden;*/
 	  overflow-y: scroll;
 	  position: fixed;/* this positions the modal window relative to viewport, it won't scroll with the page */  
 	  z-index: 100;
 	  right: 0;
-	  top: 8vh;
+    top: 8vh;
 	}
 }
 
 /* Don */
 .credits {
-  color: aqua;
-  max-width: 80vw;
+  color: white;
+  margin: 0 auto;
+  top: 20vh;
+  width: 50vw;
 }
 
-
 .modal-close {
-	position: fixed;
-	right:20px;
+	position: absolute;
+  right: 20px;
+  top: 20px;
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 50%;
   height: 20px;
