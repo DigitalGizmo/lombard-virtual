@@ -82,6 +82,16 @@ main {
   margin-bottom: 0;
 }
 
+.content div.credits-link a {
+  display: block;
+  position: absolute;
+  bottom: -4em;
+  text-transform: uppercase;
+  color: #f5b901;
+  text-decoration: none;
+  letter-spacing: 0.0125em;
+}
+
 /* -- position the intro text box --*/
 .hauler{
   top: 3%;
@@ -244,7 +254,7 @@ nav.menu ul li a img {
 	}
 }
 
-/* Don */
+/* for credits modal popup */
 .credits {
   color: white;
   margin: 0 auto;

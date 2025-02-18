@@ -31,11 +31,7 @@
 
 <div id="wrapper">
   <header>
-    <h1>The Virtual Lombard <a href="/" 
-      on:click={(e) => { e.preventDefault(); showCredits();}}>
-      Credits
-    </a></h1>
-
+    <h1>The Virtual Lombard</h1>
   </header>
 
   <main>
@@ -76,12 +72,7 @@
           showModal={showModal}
         />
       {/if}
-      <!-- <p>
-        <a href="/" 
-          on:click={(e) => { e.preventDefault(); showModal();}}>
-          Credits
-        </a> 
-      </p> -->
+
     </div><!-- /#view -->
 
     <!-- Title, blurb, scrubber div now in each view component -->
