@@ -23,11 +23,4 @@
   <label for="rotate-brakes">Rotate 3-D View:</label>
   <input id="rotate-brakes" type="range" min="0" max="9" bind:value={frame} />
 
-   <div class="credits-link">
-      <a href="/" 
-        on:click={(e) => { e.preventDefault(); showCredits();}}>
-        Credits
-      </a>
-    </div>
-
 </div>

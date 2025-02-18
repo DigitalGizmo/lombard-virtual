@@ -80,12 +80,14 @@ main {
 .content input {
   vertical-align: bottom;
   margin-bottom: 0;
+  cursor: grab;
 }
 
-.content div.credits-link a {
+#view div.credits-link a {
   display: block;
   position: absolute;
-  bottom: -4em;
+  bottom: 5vh;
+  left: 5vw;
   text-transform: uppercase;
   color: #f5b901;
   text-decoration: none;
@@ -304,9 +306,12 @@ div.more-modal {
   grid-gap: 2vw;
 }
 
-div.more-modal h2 {
+div.more-modal h2, .credits h2 {
 	color: #F5B901;
 	margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
 }
 
 div.more-modal .more-img {

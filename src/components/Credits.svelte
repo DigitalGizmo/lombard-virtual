@@ -7,7 +7,7 @@
 </script>
 
 <div >
-  <h3>Credits</h3>
+  <h2>Credits</h2>
   <p>Angela, Juliet, Don and Terry</p>
 </div>
   

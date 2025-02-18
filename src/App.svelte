@@ -73,6 +73,13 @@
         />
       {/if}
 
+    <div class="credits-link">
+      <a href="/" 
+        on:click={(e) => { e.preventDefault(); showCredits();}}>
+        Credits
+      </a>
+    </div>
+
     </div><!-- /#view -->
 
     <!-- Title, blurb, scrubber div now in each view component -->
