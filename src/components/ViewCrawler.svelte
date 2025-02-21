@@ -56,12 +56,68 @@
     }
   };
 
+
+  // for swipe
+  let min = 0;
+  let max = 150;
+  let value = min;
+  let step = 1;
+
+  let touchStartX = null;
+  let touchStartValue = null;
+  let gestureContainer;
+  let containerWidth = 0;
+
+  function calculateNewValue(touchX) {
+    const deltaX = touchX - touchStartX;
+    const containerRange = containerWidth;
+    const valueRange = max - min;
+    
+    // Convert pixel movement to value change
+    const ratioMoved = deltaX / containerRange;
+    const valueChange = ratioMoved * valueRange;
+    
+    // Calculate new value
+    let newValue = touchStartValue + valueChange;
+    
+    // Constrain to min/max and round to step
+    newValue = Math.round(newValue / step) * step;
+    newValue = Math.min(Math.max(newValue, min), max);
+    
+    return newValue;
+  }
+
+  function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+    touchStartValue = value;
+    containerWidth = gestureContainer.offsetWidth;
+    event.preventDefault();
+  }
+
+  function handleTouchMove(event) {
+    if (touchStartX === null) return;
+    const currentTouchX = event.touches[0].clientX;
+    value = calculateNewValue(currentTouchX);
+    event.preventDefault();
+  }
+
+  function handleTouchEnd() {
+    touchStartX = null;
+    touchStartValue = null;
+  }
+
   onMount(() => {
+    containerWidth = gestureContainer?.offsetWidth || 0;
     preloadImages();
   });
+
+
 </script>
 
-<div>
+<div
+  bind:this={gestureContainer}
+  on:touchstart={handleTouchStart}
+>
   <img src="{assetPath}images/{imgDir}/{imgPrefix}{zFrame}.webp" 
      alt="lombard gas engine">
 </div>
@@ -77,9 +133,9 @@
   </p>
   {#if isLoading}
     <div>
-      Loading crawler tracks... {Math.round((loadedImages / 151) * 100)}%
+      Loading crawler tracks... {Math.round(loadedImages / (max+1) * 100)}%
     </div>
   {/if}
   <label for="scrub">Rotate 3-D View:</label>
-  <input id="scrub" type="range" min="0" max="150" bind:value={frame} />
+  <input id="scrub" type="range" min={min} max={max} bind:value={frame} />
 </div>
