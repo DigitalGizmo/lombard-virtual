@@ -14,6 +14,8 @@
   const imgDir = "tracks";
   const imgPrefix = "TR"
 
+  $: frame = value;
+
   // Handle frame number formatting
   $: if (frame < 10) {
     zFrame = '00' + frame.toString();
@@ -117,6 +119,9 @@
 <div
   bind:this={gestureContainer}
   on:touchstart={handleTouchStart}
+  on:touchmove={handleTouchMove}
+  on:touchend={handleTouchEnd}
+  on:touchcancel={handleTouchEnd}
 >
   <img src="{assetPath}images/{imgDir}/{imgPrefix}{zFrame}.webp" 
      alt="lombard gas engine">
@@ -137,5 +142,19 @@
     </div>
   {/if}
   <label for="scrub">Rotate 3-D View:</label>
-  <input id="scrub" type="range" min={min} max={max} bind:value={frame} />
+  <!-- <input id="scrub" type="range" min={min} max={max} bind:value={frame} /> -->
+
+  <input
+    type="range"
+    {min}
+    {max}
+    {step}
+    bind:value
+    id="scrub"
+  />
+  <!-- <div class="value-display">
+    Value: {value}
+  </div> -->
+
+
 </div>
