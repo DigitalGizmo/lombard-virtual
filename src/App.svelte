@@ -15,8 +15,8 @@
   let isModalShowing = false;
   let isCredits = true;
 
-  let frame = 15;
-  let zFrame = '0';
+  // let frame = 15;
+  // let zFrame = '0';
 
   function setView(_viewIdx) {
     viewIdx = _viewIdx;

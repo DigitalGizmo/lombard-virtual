@@ -1,12 +1,12 @@
 <script>
   import { onMount } from 'svelte';
-  
+  import { formatFrameNumber } from '../lib/utils.js';
+
   export let assetPath;
   export let thisView;
   export let showModal;
 
   let frame = 0;
-  let zFrame = '0';
   let loadedImages = 0;
   let isLoading = true;
   let preloadedImages = [];
@@ -14,19 +14,10 @@
   const imgDir = "tracks";
   const imgPrefix = "TR"
 
-  $: frame = value;
-
-  // Handle frame number formatting
-  $: if (frame < 10) {
-    zFrame = '00' + frame.toString();
-  } else if (frame < 100) {
-    zFrame = '0' + frame.toString();
-  } else {
-    zFrame = frame.toString();
-  }
+  $: zFrame = formatFrameNumber(frame);
 
   const preloadImages = async () => {
-    const totalImages = 151; // 0 to 15 inclusive
+    const totalImages = 151; // 0 to 150 inclusive
     const promises = [];
 
     for (let i = 0; i < totalImages; i++) {
@@ -58,11 +49,9 @@
     }
   };
 
-
   // for swipe
   let min = 0;
   let max = 150;
-  let value = min;
   let step = 1;
 
   let touchStartX = null;
@@ -91,7 +80,7 @@
 
   function handleTouchStart(event) {
     touchStartX = event.touches[0].clientX;
-    touchStartValue = value;
+    touchStartValue = frame;
     containerWidth = gestureContainer.offsetWidth;
     event.preventDefault();
   }
@@ -99,7 +88,7 @@
   function handleTouchMove(event) {
     if (touchStartX === null) return;
     const currentTouchX = event.touches[0].clientX;
-    value = calculateNewValue(currentTouchX);
+    frame = calculateNewValue(currentTouchX);
     event.preventDefault();
   }
 
@@ -112,8 +101,6 @@
     containerWidth = gestureContainer?.offsetWidth || 0;
     preloadImages();
   });
-
-
 </script>
 
 <div
@@ -124,7 +111,7 @@
   on:touchcancel={handleTouchEnd}
 >
   <img src="{assetPath}images/{imgDir}/{imgPrefix}{zFrame}.webp" 
-     alt="lombard gas engine">
+     alt="lombard crawler tracks">
 </div>
 
 <div class="content {thisView.slug}">
@@ -142,19 +129,12 @@
     </div>
   {/if}
   <label for="scrub">Rotate 3-D View:</label>
-  <!-- <input id="scrub" type="range" min={min} max={max} bind:value={frame} /> -->
-
-  <input
-    type="range"
-    {min}
-    {max}
-    {step}
-    bind:value
+  <input 
     id="scrub"
+    type="range"
+    min={min}
+    max={max}
+    step={step}
+    bind:value={frame}
   />
-  <!-- <div class="value-display">
-    Value: {value}
-  </div> -->
-
-
 </div>
