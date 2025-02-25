@@ -1,24 +1,19 @@
 <script>
   import { onMount } from 'svelte';
-  
+  import { formatFrameNumber } from '../lib/utils.js';
+
   export let assetPath;
   export let thisView;
   export let showModal;
 
   let frame = 0;
-  let zFrame = '0';
+  // let zFrame = '0';
+
   let loadedImages = 0;
   let isLoading = true;
   let preloadedImages = [];
 
-  // Handle frame number formatting
-  $: if (frame < 10) {
-    zFrame = '00' + frame.toString();
-  } else if (frame < 100) {
-    zFrame = '0' + frame.toString();
-  } else {
-    zFrame = frame.toString();
-  }
+  $: zFrame = formatFrameNumber(frame);
 
   const preloadImages = async () => {
     const totalImages = 151; // 0 to 15 inclusive

@@ -1,23 +1,18 @@
 <script>
+  import { formatFrameNumber } from '../lib/utils.js';
   export let assetPath; 
   export let thisView;
   export let showModal;
 
+  // export let frame = 15;
   let frame = 15;
-  let zFrame = '0';
 
-  $: if (frame < 10) {
-    zFrame = '00' + frame.toString();
-  } else if (frame < 100){
-    zFrame = '0' + frame.toString();
-  } else {
-    zFrame = frame.toString();
-  }
-  
+  $: zFrame = formatFrameNumber(frame);
+
 </script>
 
 <div >
-  <img src="{assetPath}images/rotate/Lombard{zFrame}.jpg" 
+  <img src="{assetPath}images/lombard/Lombard{zFrame}.webp" 
     alt="lombard hauler 3D view">
 </div>
   
