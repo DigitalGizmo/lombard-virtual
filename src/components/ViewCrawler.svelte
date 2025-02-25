@@ -30,7 +30,7 @@
   }
 
   const preloadImages = async () => {
-    const totalImages = 151; // 0 to 150 inclusive
+    const totalImages = max+1; // 0 to 150 inclusive
     const promises = [];
 
     for (let i = 0; i < totalImages; i++) {

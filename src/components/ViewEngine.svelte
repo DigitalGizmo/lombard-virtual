@@ -16,6 +16,9 @@
   let isLoading = true;
   let preloadedImages = [];
 
+  let imgDir = "engine";
+  let imgPrefix = "Eng";
+
   $: zFrame = formatFrameNumber(frame);
   
   function getFrame() {
@@ -27,14 +30,14 @@
   }
 
   const preloadImages = async () => {
-    const totalImages = 151; // 0 to 15 inclusive
+    const totalImages = max+1; // 0 to 15 inclusive
     const promises = [];
 
     for (let i = 0; i < totalImages; i++) {
       const imageNumber = i < 10 ? `00${i}` : 
                          i < 100 ? `0${i}` : 
                          i.toString();
-      const imagePath = `${assetPath}images/engine/Eng${imageNumber}.webp`;
+      const imagePath = `${assetPath}images/${imgDir}/${imgPrefix}${imageNumber}.webp`;
       
       const promise = new Promise((resolve, reject) => {
         const img = new Image();
@@ -64,7 +67,7 @@
 </script>
 
 <div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
-  <img src="{assetPath}images/engine/Eng{zFrame}.webp" 
+  <img src="{assetPath}images/{imgDir}/{imgPrefix}{zFrame}.webp" 
      alt="lombard gas engine">
 </div>
 
@@ -79,7 +82,7 @@
   </p>
   {#if isLoading}
     <div>
-      Loading Engine... {Math.round((loadedImages / 151) * 100)}%
+      Loading Engine... {Math.round((loadedImages / (max+1)) * 100)}%
     </div>
   {/if}
   <label for="scrub">Run the engine:</label>
