@@ -1,19 +1,30 @@
 <script>
   import { onMount } from 'svelte';
   import { formatFrameNumber } from '../lib/utils.js';
+  import { touchGesture } from '../lib/touchGesture.js';
 
   export let assetPath;
   export let thisView;
   export let showModal;
 
   let frame = 0;
-  // let zFrame = '0';
+  const min = 0;
+  const max = 150;
+  const step = 1;
 
   let loadedImages = 0;
   let isLoading = true;
   let preloadedImages = [];
 
   $: zFrame = formatFrameNumber(frame);
+  
+  function getFrame() {
+    return frame;
+  }
+  
+  function setFrame(value) {
+    frame = value;
+  }
 
   const preloadImages = async () => {
     const totalImages = 151; // 0 to 15 inclusive
@@ -52,7 +63,7 @@
   });
 </script>
 
-<div>
+<div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
   <img src="{assetPath}images/engine/Eng{zFrame}.webp" 
      alt="lombard gas engine">
 </div>
@@ -72,5 +83,5 @@
     </div>
   {/if}
   <label for="scrub">Run the engine:</label>
-  <input id="scrub" type="range" min="0" max="150" bind:value={frame} />
+  <input id="scrub" type="range" min="{min}" max="{max}" step="{step}" bind:value={frame} />
 </div>

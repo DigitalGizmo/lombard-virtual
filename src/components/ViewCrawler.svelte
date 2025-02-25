@@ -1,20 +1,33 @@
 <script>
   import { onMount } from 'svelte';
   import { formatFrameNumber } from '../lib/utils.js';
+  import { touchGesture } from '../lib/touchGesture.js';
 
   export let assetPath;
   export let thisView;
   export let showModal;
 
   let frame = 0;
+  const min = 0;
+  const max = 150;
+  const step = 1;
+  
   let loadedImages = 0;
   let isLoading = true;
   let preloadedImages = [];
 
   const imgDir = "tracks";
-  const imgPrefix = "TR"
+  const imgPrefix = "TR";
 
   $: zFrame = formatFrameNumber(frame);
+  
+  function getFrame() {
+    return frame;
+  }
+  
+  function setFrame(value) {
+    frame = value;
+  }
 
   const preloadImages = async () => {
     const totalImages = 151; // 0 to 150 inclusive
@@ -49,67 +62,12 @@
     }
   };
 
-  // for swipe
-  let min = 0;
-  let max = 150;
-  let step = 1;
-
-  let touchStartX = null;
-  let touchStartValue = null;
-  let gestureContainer;
-  let containerWidth = 0;
-
-  function calculateNewValue(touchX) {
-    const deltaX = touchX - touchStartX;
-    const containerRange = containerWidth;
-    const valueRange = max - min;
-    
-    // Convert pixel movement to value change
-    const ratioMoved = deltaX / containerRange;
-    const valueChange = ratioMoved * valueRange;
-    
-    // Calculate new value
-    let newValue = touchStartValue + valueChange;
-    
-    // Constrain to min/max and round to step
-    newValue = Math.round(newValue / step) * step;
-    newValue = Math.min(Math.max(newValue, min), max);
-    
-    return newValue;
-  }
-
-  function handleTouchStart(event) {
-    touchStartX = event.touches[0].clientX;
-    touchStartValue = frame;
-    containerWidth = gestureContainer.offsetWidth;
-    event.preventDefault();
-  }
-
-  function handleTouchMove(event) {
-    if (touchStartX === null) return;
-    const currentTouchX = event.touches[0].clientX;
-    frame = calculateNewValue(currentTouchX);
-    event.preventDefault();
-  }
-
-  function handleTouchEnd() {
-    touchStartX = null;
-    touchStartValue = null;
-  }
-
   onMount(() => {
-    containerWidth = gestureContainer?.offsetWidth || 0;
     preloadImages();
   });
 </script>
 
-<div
-  bind:this={gestureContainer}
-  on:touchstart={handleTouchStart}
-  on:touchmove={handleTouchMove}
-  on:touchend={handleTouchEnd}
-  on:touchcancel={handleTouchEnd}
->
+<div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
   <img src="{assetPath}images/{imgDir}/{imgPrefix}{zFrame}.webp" 
      alt="lombard crawler tracks">
 </div>
@@ -132,9 +90,9 @@
   <input 
     id="scrub"
     type="range"
-    min={min}
-    max={max}
-    step={step}
+    min="{min}"
+    max="{max}"
+    step="{step}"
     bind:value={frame}
   />
 </div>
