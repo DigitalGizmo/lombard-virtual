@@ -2,7 +2,8 @@
   import { onMount } from 'svelte';
   import { formatFrameNumber } from '../lib/utils.js';
   import { touchGesture } from '../lib/touchGesture.js';
-
+  import { createImageLoader } from '../lib/imageLoader.js';
+  
   export let assetPath;
   export let thisView;
   export let showModal;
@@ -11,16 +12,29 @@
   const min = 0;
   const max = 150;
   const step = 1;
-
-  let loadedImages = 0;
-  let isLoading = true;
-  let preloadedImages = [];
-
-  let imgDir = "engine";
-  let imgPrefix = "Eng";
-
+  
+  // Create image loader
+  const imageLoader = createImageLoader({
+    assetPath,
+    imgDir: 'engine',
+    imgPrefix: 'Eng',
+    min,
+    max,
+    extension: 'webp'
+  });
+  
+  // Destructure necessary values and functions
+  const { 
+    isLoading, 
+    loadingPercentage,
+    getImagePath,
+    preloadImages
+  } = imageLoader;
+  
+  // Calculate zFrame for current frame
   $: zFrame = formatFrameNumber(frame);
   
+  // Helper functions for touch gesture
   function getFrame() {
     return frame;
   }
@@ -29,46 +43,13 @@
     frame = value;
   }
 
-  const preloadImages = async () => {
-    const totalImages = max+1; // 0 to 15 inclusive
-    const promises = [];
-
-    for (let i = 0; i < totalImages; i++) {
-      const imageNumber = i < 10 ? `00${i}` : 
-                         i < 100 ? `0${i}` : 
-                         i.toString();
-      const imagePath = `${assetPath}images/${imgDir}/${imgPrefix}${imageNumber}.webp`;
-      
-      const promise = new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => {
-          loadedImages++;
-          preloadedImages[i] = img;
-          resolve(img);
-        };
-        img.onerror = reject;
-        img.src = imagePath;
-      });
-      
-      promises.push(promise);
-    }
-
-    try {
-      await Promise.all(promises);
-      isLoading = false;
-    } catch (error) {
-      console.error('Error preloading images:', error);
-    }
-  };
-
   onMount(() => {
     preloadImages();
   });
 </script>
 
 <div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
-  <img src="{assetPath}images/{imgDir}/{imgPrefix}{zFrame}.webp" 
-     alt="lombard gas engine">
+  <img src={getImagePath(frame)} alt="lombard gas engine">
 </div>
 
 <div class="content {thisView.slug}">
@@ -80,9 +61,9 @@
       Learn more
     </a>
   </p>
-  {#if isLoading}
+  {#if $isLoading}
     <div>
-      Loading Engine... {Math.round((loadedImages / (max+1)) * 100)}%
+      Loading Engine... {$loadingPercentage}%
     </div>
   {/if}
   <label for="scrub">Run the engine:</label>
