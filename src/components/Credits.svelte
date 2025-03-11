@@ -1,5 +1,5 @@
 <script>
-  export let assetPath; 
+  // export let assetPath; 
   // export let thisView;
   // export let showModal;
 

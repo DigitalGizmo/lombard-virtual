@@ -8,16 +8,16 @@
   export let thisView;
   export let showModal;
 
-  let frame = 15;
-  const min = 15;
-  const max = 35;
+  let frame = 0;
+  const min = 0;
+  const max = 150;
   const step = 1;
   
   // Create image loader
   const imageLoader = createImageLoader({
     assetPath,
     imgDir: 'lombard',
-    imgPrefix: 'Lombard',
+    imgPrefix: 'VL',
     min,
     max,
     extension: 'webp'
