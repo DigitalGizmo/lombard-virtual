@@ -7,22 +7,26 @@
   import ViewEngine from "./components/ViewEngine.svelte";
   import ViewBrakes from "./components/ViewBrakes.svelte";
 
-  // import { formatFrameNumber } from './lib/utils.js';
-
-  const assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
-  // const assetPath = "";
   let viewIdx = 0;
   let isModalShowing = false;
   let isCredits = true;
+  let assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
+  
+  let buildMode = 2;
+  // buildMode: 0 = devel, 1 web, 2 = kiosk
 
-  // let frame = 15;
-  // let zFrame = '0';
+  if (buildMode = 0) {
+    assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
+  } else if (buildMode = 1) {
+    assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
+  } else {
+    console.log(' buildMode: ' + buildMode);
+    assetPath = "";
+  }
 
   function setView(_viewIdx) {
     viewIdx = _viewIdx;
   }
-
-  // $: zFrame = formatFrameNumber(frame);
 
   function showModal() { 
       isCredits = false;
