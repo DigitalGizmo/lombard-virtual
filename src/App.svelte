@@ -1,4 +1,5 @@
 <script>
+  import { onMount, onDestroy } from 'svelte';
   import MoreModal from "./components/MoreModal.svelte";
   import views from './lib/views.json';
   import ViewLombard from "./components/ViewLombard.svelte";
@@ -12,30 +13,83 @@
   let isCredits = true;
   let assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
   
-  let buildMode = 2;
+  let buildMode = 0;
   // buildMode: 0 = devel, 1 web, 2 = kiosk
 
-  if (buildMode = 0) {
+  if (buildMode === 0) {
     assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
-  } else if (buildMode = 1) {
-    assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
+  } else if (buildMode === 1) {
+    assetPath = "https://mainestetemuseum.org/lombard-virtual/";
   } else {
     console.log(' buildMode: ' + buildMode);
     assetPath = "";
   }
 
+  // Kiosk timeout functionality
+  const TIMEOUT_DURATION = 60000; // 120000 2 minutes in milliseconds
+  let timeoutId;
+
+  function resetTimeout() {
+    if (buildMode === 2 && (viewIdx !== 0 || isModalShowing)) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        viewIdx = 0;
+        isModalShowing = false;
+      }, TIMEOUT_DURATION);
+    }
+  }
+
+  function clearKioskTimeout() {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+
+  function handleUserActivity() {
+    if (buildMode === 2) {
+      resetTimeout();
+    }
+  }
+
   function setView(_viewIdx) {
     viewIdx = _viewIdx;
+    if (buildMode === 2 && (_viewIdx !== 0 || isModalShowing)) {
+      resetTimeout();
+    }
   }
 
   function showModal() { 
-      isCredits = false;
-      isModalShowing = true;
-  };  
+    isCredits = false;
+    isModalShowing = true;
+    handleUserActivity();
+  }
+
   function showCredits() { 
-      isCredits = true;
-      isModalShowing = true;
-  };  
+    isCredits = true;
+    isModalShowing = true;
+    handleUserActivity();
+  }
+
+  onMount(() => {
+    if (buildMode === 2) {
+      // Add event listeners for user activity
+      window.addEventListener('click', handleUserActivity);
+      window.addEventListener('touchstart', handleUserActivity);
+      window.addEventListener('mousemove', handleUserActivity);
+      window.addEventListener('keydown', handleUserActivity);
+    }
+  });
+
+  onDestroy(() => {
+    if (buildMode === 2) {
+      // Clean up event listeners and timeout
+      window.removeEventListener('click', handleUserActivity);
+      window.removeEventListener('touchstart', handleUserActivity);
+      window.removeEventListener('mousemove', handleUserActivity);
+      window.removeEventListener('keydown', handleUserActivity);
+      clearKioskTimeout();
+    }
+  });
 </script>
 
 <div id="wrapper">
