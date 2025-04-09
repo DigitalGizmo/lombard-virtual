@@ -13,7 +13,7 @@
   let isCredits = true;
   let assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
   
-  let buildMode = 2;
+  let buildMode = 0;
   // buildMode: 0 = devel, 1 web, 2 = kiosk
 
   if (buildMode === 0) {

@@ -20,7 +20,7 @@
     imgPrefix: 'Layer3/BR',
     min,
     max,
-    extension: 'jpg'
+    extension: 'png'
   });
   
   // Destructure necessary values and functions
@@ -49,7 +49,14 @@
 </script>
 
 <div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
+
+  <!-- <img src="{assetPath}images/brakes/BR101.jpg" alt="Lomgard glass background"> -->
+  <!-- <img src="{assetPath}images/brakes/Layer2/BR201.png" alt="Right side cog"> -->
+  
   <img src={getImagePath(frame)} alt="lombard brake system">
+
+  <!-- <img src="{assetPath}images/brakes/Layer4/BR401.png" alt="Drive shaft, left cog"> -->
+
 </div>
 
 <div class="content {thisView.slug}">
