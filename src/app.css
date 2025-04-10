@@ -131,6 +131,13 @@ main {
   cursor: pointer;
 }
 
+/* for brakes animation */
+.brakes-bkgnd, .brakes-right-cog, .brakes-drum, .brakes-left-cog {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /* NAV AREA */
 nav.menu {
   grid-column: 2;

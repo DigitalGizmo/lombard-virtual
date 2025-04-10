@@ -50,12 +50,13 @@
 
 <div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
 
-  <!-- <img src="{assetPath}images/brakes/BR101.jpg" alt="Lomgard glass background"> -->
-  <!-- <img src="{assetPath}images/brakes/Layer2/BR201.png" alt="Right side cog"> -->
-  
-  <img src={getImagePath(frame)} alt="lombard brake system">
+  <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="brakes-bkgnd">
 
-  <!-- <img src="{assetPath}images/brakes/Layer4/BR401.png" alt="Drive shaft, left cog"> -->
+  <img src="{assetPath}images/brakes/Layer2/BR201.png" alt="Right side cog" class="brakes-right-cog">
+  
+  <img src={getImagePath(frame)} alt="lombard brake system" class="brakes-drum">
+
+  <img src="{assetPath}images/brakes/Layer4/BR401.png" alt="Drive shaft, left cog" class="brakes-left-cog">
 
 </div>
 
