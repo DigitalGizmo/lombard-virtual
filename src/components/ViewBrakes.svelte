@@ -8,16 +8,16 @@
   export let thisView;
   export let showModal;
 
-  let frame = 301;
-  const min = 301;
-  const max = 313;
+  let frame = 1;
+  const min = 1;
+  const max = 13;
   const step = 1;
   
   // Create image loader
   const imageLoader = createImageLoader({
     assetPath,
     imgDir: 'brakes',
-    imgPrefix: 'Layer3/BR',
+    imgPrefix: 'Layer5/BR5',
     min,
     max,
     extension: 'png'
@@ -52,11 +52,18 @@
 
   <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="brakes-bkgnd">
 
-  <img src="{assetPath}images/brakes/Layer2/BR201.png" alt="Right side cog" class="brakes-right-cog">
-  
-  <img src={getImagePath(frame)} alt="lombard brake system" class="brakes-drum">
+  <img src="{assetPath}images/brakes/Layer1/BR1001.png" alt="Right side cog" class="right-cog">
 
-  <img src="{assetPath}images/brakes/Layer4/BR401.png" alt="Drive shaft, left cog" class="brakes-left-cog">
+  <!-- <img src="{assetPath}images/brakes/Layer2/BR2001.png" alt="connector" class="back-connector"> -->
+  <!-- <img src={getImagePath(frame + 100)} alt="linkage" class="connector"> -->
+
+  <img src="{assetPath}images/brakes/Layer3/BR3001.png" alt="drive axle" class="drive-axle">
+
+  <!-- <img src="{assetPath}images/brakes/Layer4/BR4001.png" alt="differential" class="differential">
+   -->
+  <img src={getImagePath(frame)} alt="linkage" class="linkage">
+
+  <img src="{assetPath}images/brakes/Layer6/BR6001.png" alt="left cog" class="left-cog">
 
 </div>
 

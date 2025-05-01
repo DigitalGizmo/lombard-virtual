@@ -132,7 +132,7 @@ main {
 }
 
 /* for brakes animation */
-.brakes-bkgnd, .brakes-right-cog, .brakes-drum, .brakes-left-cog {
+.brakes-bkgnd, .right-cog, .back-connector, .drive-axle, .linkage, .differential, .left-cog {
   position: absolute;
   top: 0;
   left: 0;
