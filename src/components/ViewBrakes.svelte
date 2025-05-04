@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { formatFrameNumber } from '../lib/utils.js';
   import { touchGesture } from '../lib/touchGesture.js';
   import { createImageLoader } from '../lib/imageLoader.js';
@@ -43,9 +43,49 @@
     frame = value;
   }
 
+
+  /**
+   * Drive train and cog animation
+   */
+  let curDriveFrame = 1;
+  let interval;
+  let speed = 100; // Animation speed in milliseconds
+
+  let displayFrame = "01";
+  // $: displayFrame = "01";
+
+  // Handle frame number formatting
+  $: if (curDriveFrame < 10) {
+    displayFrame = '0' + curDriveFrame.toString();
+  } else {
+    displayFrame = frame.toString();
+  }
+
+  // Function to start/restart the animation
+  function startAnimation() {
+    // Clear any existing interval
+    if (interval) clearInterval(interval);
+    
+    // Start new interval with current speed
+    interval = setInterval(() => {
+      curDriveFrame = (curDriveFrame + 1) % 13;
+    }, speed);
+  }
+
+  // Watch for speed changes
+  $: if (speed) {
+    startAnimation();
+  }
+
   onMount(() => {
     preloadImages();
+    startAnimation();
   });
+
+  onDestroy(() => {
+    if (interval) clearInterval(interval);
+  });  
+
 </script>
 
 <div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
@@ -58,7 +98,7 @@
 
   <img src={getImagePath(frame)} alt="linkage" class="linkage">
 
-  <img src="{assetPath}images/brakes/Layer6/BR6001.png" alt="left cog" class="left-cog">
+  <img src="{assetPath}images/brakes/Layer6/BR600{displayFrame}.png" alt="left cog" class="left-cog">
 
 </div>
 
