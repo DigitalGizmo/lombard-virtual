@@ -54,13 +54,8 @@
 
   <img src="{assetPath}images/brakes/Layer1/BR1001.png" alt="Right side cog" class="right-cog">
 
-  <!-- <img src="{assetPath}images/brakes/Layer2/BR2001.png" alt="connector" class="back-connector"> -->
-  <!-- <img src={getImagePath(frame + 100)} alt="linkage" class="connector"> -->
-
   <img src="{assetPath}images/brakes/Layer3/BR3001.png" alt="drive axle" class="drive-axle">
 
-  <!-- <img src="{assetPath}images/brakes/Layer4/BR4001.png" alt="differential" class="differential">
-   -->
   <img src={getImagePath(frame)} alt="linkage" class="linkage">
 
   <img src="{assetPath}images/brakes/Layer6/BR6001.png" alt="left cog" class="left-cog">
