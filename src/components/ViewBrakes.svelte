@@ -13,7 +13,7 @@
   const max = 13;
   const step = 1;
   
-  // Create image loader
+  // Create image loader for linkage (Layer 5)
   const imageLoader = createImageLoader({
     assetPath,
     imgDir: 'brakes',
@@ -23,13 +23,68 @@
     extension: 'png'
   });
   
+  // Create image loaders for animated elements
+  const leftCogLoader = createImageLoader({
+    assetPath,
+    imgDir: 'brakes/Layer6',
+    imgPrefix: 'BR6',
+    min: 1,
+    max: 13,
+    extension: 'png'
+  });
+  
+  const rightCogLoader = createImageLoader({
+    assetPath,
+    imgDir: 'brakes/Layer1',
+    imgPrefix: 'BR1',
+    min: 1,
+    max: 13,
+    extension: 'png'
+  });
+  
+  const driveAxleLoader = createImageLoader({
+    assetPath,
+    imgDir: 'brakes/Layer3',
+    imgPrefix: 'BR3',
+    min: 1,
+    max: 13,
+    extension: 'png'
+  });
+  
   // Destructure necessary values and functions
   const { 
-    isLoading, 
-    loadingPercentage,
+    isLoading: linkageLoading, 
+    loadingPercentage: linkageLoadingPercentage,
     getImagePath,
-    preloadImages
+    preloadImages: preloadLinkageImages
   } = imageLoader;
+  
+  const {
+    isLoading: leftCogLoading,
+    loadingPercentage: leftCogLoadingPercentage,
+    preloadImages: preloadLeftCogImages
+  } = leftCogLoader;
+  
+  const {
+    isLoading: rightCogLoading,
+    loadingPercentage: rightCogLoadingPercentage,
+    preloadImages: preloadRightCogImages
+  } = rightCogLoader;
+  
+  const {
+    isLoading: driveAxleLoading,
+    loadingPercentage: driveAxleLoadingPercentage,
+    preloadImages: preloadDriveAxleImages
+  } = driveAxleLoader;
+  
+  // Combined loading state
+  $: isLoading = $linkageLoading || $leftCogLoading || $rightCogLoading || $driveAxleLoading;
+  
+  // Calculate average loading percentage
+  $: loadingPercentage = Math.round(
+    ($linkageLoadingPercentage + $leftCogLoadingPercentage + 
+     $rightCogLoadingPercentage + $driveAxleLoadingPercentage) / 4
+  );
   
   // Calculate zFrame for current frame
   $: zFrame = formatFrameNumber(frame);
@@ -43,7 +98,6 @@
     frame = value;
   }
 
-
   /**
    * Drive train and cog animation
    */
@@ -51,7 +105,7 @@
   let interval;
   let speed = 100; // Animation speed in milliseconds
 
-  // Handle frame number formatting for left cog
+  // Handle frame number formatting for animations
   $: displayFrame = formatFrameNumber(curDriveFrame);
 
   // Function to start/restart the animation
@@ -62,7 +116,6 @@
     // Start new interval with current speed
     interval = setInterval(() => {
       curDriveFrame = curDriveFrame % 13 + 1; // This cycles from 1-13 instead of 0-12
-      console.log('Current drive frame:', curDriveFrame, 'Display frame:', displayFrame);
     }, speed);
   }
 
@@ -72,28 +125,27 @@
   }
 
   onMount(() => {
-    preloadImages();
+    // Preload all image sets
+    preloadLinkageImages();
+    preloadLeftCogImages();
+    preloadRightCogImages();
+    preloadDriveAxleImages();
+    
+    // Start animation
     startAnimation();
   });
 
   onDestroy(() => {
     if (interval) clearInterval(interval);
   });  
-
 </script>
 
 <div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
-
   <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="brakes-bkgnd">
-
   <img src="{assetPath}images/brakes/Layer1/BR1{displayFrame}.png" alt="Right side cog" class="right-cog">
-
   <img src="{assetPath}images/brakes/Layer3/BR3{displayFrame}.png" alt="drive axle" class="drive-axle">
-
   <img src={getImagePath(frame)} alt="linkage" class="linkage">
-
   <img src="{assetPath}images/brakes/Layer6/BR6{displayFrame}.png" alt="left cog" class="left-cog">
-
 </div>
 
 <div class="content {thisView.slug}">
@@ -105,9 +157,9 @@
       Learn more
     </a>
   </p>
-  {#if $isLoading}
+  {#if isLoading}
     <div>
-      Loading Engine... {$loadingPercentage}%
+      Loading Engine... {loadingPercentage}%
     </div>
   {/if}
   <label for="scrub">Run the engine:</label>
