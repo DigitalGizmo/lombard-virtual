@@ -51,15 +51,8 @@
   let interval;
   let speed = 100; // Animation speed in milliseconds
 
-  let displayFrame = "01";
-  // $: displayFrame = "01";
-
-  // Handle frame number formatting
-  $: if (curDriveFrame < 10) {
-    displayFrame = '0' + curDriveFrame.toString();
-  } else {
-    displayFrame = frame.toString();
-  }
+  // Handle frame number formatting for left cog
+  $: displayFrame = formatFrameNumber(curDriveFrame);
 
   // Function to start/restart the animation
   function startAnimation() {
@@ -68,7 +61,8 @@
     
     // Start new interval with current speed
     interval = setInterval(() => {
-      curDriveFrame = (curDriveFrame + 1) % 13;
+      curDriveFrame = curDriveFrame % 13 + 1; // This cycles from 1-13 instead of 0-12
+      console.log('Current drive frame:', curDriveFrame, 'Display frame:', displayFrame);
     }, speed);
   }
 
@@ -98,7 +92,12 @@
 
   <img src={getImagePath(frame)} alt="linkage" class="linkage">
 
-  <img src="{assetPath}images/brakes/Layer6/BR600{displayFrame}.png" alt="left cog" class="left-cog">
+  <!-- Add debug display to see what path is being generated -->
+  <p style="position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.7); padding: 5px; z-index: 999;">
+    Current path: {assetPath}images/brakes/Layer6/BR600{displayFrame}.png
+  </p>
+  
+  <img src="{assetPath}images/brakes/Layer6/BR6{displayFrame}.png" alt="left cog" class="left-cog">
 
 </div>
 
