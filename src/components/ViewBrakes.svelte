@@ -86,17 +86,12 @@
 
   <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="brakes-bkgnd">
 
-  <img src="{assetPath}images/brakes/Layer1/BR1001.png" alt="Right side cog" class="right-cog">
+  <img src="{assetPath}images/brakes/Layer1/BR1{displayFrame}.png" alt="Right side cog" class="right-cog">
 
-  <img src="{assetPath}images/brakes/Layer3/BR3001.png" alt="drive axle" class="drive-axle">
+  <img src="{assetPath}images/brakes/Layer3/BR3{displayFrame}.png" alt="drive axle" class="drive-axle">
 
   <img src={getImagePath(frame)} alt="linkage" class="linkage">
 
-  <!-- Add debug display to see what path is being generated -->
-  <p style="position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.7); padding: 5px; z-index: 999;">
-    Current path: {assetPath}images/brakes/Layer6/BR600{displayFrame}.png
-  </p>
-  
   <img src="{assetPath}images/brakes/Layer6/BR6{displayFrame}.png" alt="left cog" class="left-cog">
 
 </div>
