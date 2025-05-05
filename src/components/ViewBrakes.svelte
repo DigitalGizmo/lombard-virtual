@@ -104,24 +104,67 @@
   let curDriveFrame = 1;
   let interval;
   let speed = 100; // Animation speed in milliseconds
+  let isAnimationRunning = false;
 
   // Handle frame number formatting for animations
   $: displayFrame = formatFrameNumber(curDriveFrame);
 
-  // Function to start/restart the animation
+  // Determine speed based on frame (brake position)
+  $: {
+    if (frame === 13) {
+      // Stop animation completely
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+        isAnimationRunning = false;
+      }
+    } else if (frame > 10) {
+      speed = 1000; // Slow
+      if (!isAnimationRunning) {
+        startAnimation();
+      } else {
+        updateAnimationSpeed();
+      }
+    } else if (frame > 6) {
+      speed = 200; // Medium
+      if (!isAnimationRunning) {
+        startAnimation();
+      } else {
+        updateAnimationSpeed();
+      }
+    } else {
+      speed = 100; // Fast
+      if (!isAnimationRunning) {
+        startAnimation();
+      } else {
+        updateAnimationSpeed();
+      }
+    }
+  }
+
+  // Function to update animation speed without restarting
+  function updateAnimationSpeed() {
+    if (interval) {
+      clearInterval(interval);
+      
+      // Create new interval with updated speed but preserve current frame
+      interval = setInterval(() => {
+        curDriveFrame = curDriveFrame % 13 + 1;
+      }, speed);
+    }
+  }
+
+  // Function to start animation
   function startAnimation() {
     // Clear any existing interval
     if (interval) clearInterval(interval);
     
     // Start new interval with current speed
     interval = setInterval(() => {
-      curDriveFrame = curDriveFrame % 13 + 1; // This cycles from 1-13 instead of 0-12
+      curDriveFrame = curDriveFrame % 13 + 1;
     }, speed);
-  }
-
-  // Watch for speed changes
-  $: if (speed) {
-    startAnimation();
+    
+    isAnimationRunning = true;
   }
 
   onMount(() => {
@@ -137,6 +180,7 @@
 
   onDestroy(() => {
     if (interval) clearInterval(interval);
+    isAnimationRunning = false;
   });  
 </script>
 
