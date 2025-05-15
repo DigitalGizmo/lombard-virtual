@@ -199,7 +199,8 @@
     <a href="/" 
       on:click={(e) => { e.preventDefault(); showModal();}}>
       Learn more
-    </a>
+    </a> 
+    debug displayFrame: {displayFrame}
   </p>
   {#if isLoading}
     <div>
