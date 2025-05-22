@@ -9,7 +9,7 @@
   <h2>{view.title}</h2>
 
   <div class="more-img">
-    <img src="{assetPath}images/more/horse-drawn-sleds.jpg" alt="horse and oxen drawing logs on sleds">
+    <img src="{assetPath}images/more/MS73.77_01-001.jpg" alt="horse and oxen drawing logs on sleds">
     <p class="caption">{view.more.cap1}</p>
   </div>
 
