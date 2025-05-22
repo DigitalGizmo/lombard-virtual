@@ -207,6 +207,6 @@
       Loading Engine... {loadingPercentage}%
     </div>
   {/if}
-  <label for="scrub">Run the engine:</label>
+  <label for="scrub">Apply the brakes:</label>
   <input id="scrub" type="range" min="{min}" max="{max}" step="{step}" bind:value={frame} />
 </div>
