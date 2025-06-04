@@ -13,41 +13,41 @@
   const max = 13;
   const step = 1;
   
-  // Create image loader for linkage (Layer 5)
+  // Create image loader for linkage (Layer 3)
   const imageLoader = createImageLoader({
     assetPath,
     imgDir: 'brakes',
-    imgPrefix: 'Layer5/BR5',
+    imgPrefix: 'Layer3/BR3',
     min,
     max,
     extension: 'png'
   });
   
   // Create image loaders for animated elements
-  const leftCogLoader = createImageLoader({
-    assetPath,
-    imgDir: 'brakes/Layer6',
-    imgPrefix: 'BR6',
-    min: 1,
-    max: 13,
-    extension: 'png'
-  });
-  
   const rightCogLoader = createImageLoader({
     assetPath,
     imgDir: 'brakes/Layer1',
     imgPrefix: 'BR1',
     min: 1,
-    max: 13,
+    max: 31,
     extension: 'png'
   });
   
   const driveAxleLoader = createImageLoader({
     assetPath,
-    imgDir: 'brakes/Layer3',
-    imgPrefix: 'BR3',
+    imgDir: 'brakes/Layer2',
+    imgPrefix: 'BR2',
     min: 1,
-    max: 13,
+    max: 29,
+    extension: 'png'
+  });
+
+    const leftCogLoader = createImageLoader({
+    assetPath,
+    imgDir: 'brakes/Layer4',
+    imgPrefix: 'BR4',
+    min: 1,
+    max: 29,
     extension: 'png'
   });
   
@@ -149,7 +149,7 @@
       
       // Create new interval with updated speed but preserve current frame
       interval = setInterval(() => {
-        curDriveFrame = curDriveFrame % 13 + 1;
+        curDriveFrame = curDriveFrame % 29 + 1;
       }, speed);
     }
   }
@@ -161,7 +161,7 @@
     
     // Start new interval with current speed
     interval = setInterval(() => {
-      curDriveFrame = curDriveFrame % 13 + 1;
+      curDriveFrame = curDriveFrame % 29 + 1;
     }, speed);
     
     isAnimationRunning = true;
@@ -187,9 +187,9 @@
 <div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
   <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="brakes-bkgnd">
   <img src="{assetPath}images/brakes/Layer1/BR1{displayFrame}.png" alt="Right side cog" class="right-cog">
-  <img src="{assetPath}images/brakes/Layer3/BR3{displayFrame}.png" alt="drive axle" class="drive-axle">
+  <img src="{assetPath}images/brakes/Layer2/BR2{displayFrame}.png" alt="drive axle" class="drive-axle">
   <img src={getImagePath(frame)} alt="linkage" class="linkage">
-  <img src="{assetPath}images/brakes/Layer6/BR6{displayFrame}.png" alt="left cog" class="left-cog">
+  <img src="{assetPath}images/brakes/Layer4/BR4{displayFrame}.png" alt="left cog" class="left-cog">
 </div>
 
 <div class="content {thisView.slug}">
