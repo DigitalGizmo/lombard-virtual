@@ -21,7 +21,7 @@
     <img src="{assetPath}images/views/lombard-labeled.jpg" 
      alt="lombard with labels">
   {:else} -->
-  <img src="{assetPath}images/views/steering.jpg" 
+  <img src="{assetPath}images/steering/steering-new.png" 
     alt="lombard steering">
   <!-- {/if} -->
 </div>
