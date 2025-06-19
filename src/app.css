@@ -5,11 +5,13 @@ body {
 }
 
 a:link, a:visited {
-	color: white;
+	color: #F5B901;
+  text-decoration: none;
 }
 
 a:hover {
-	color: #FFDB1F;
+	color: #F5B901;
+  text-decoration: underline;
 }
 
 /* TITLE AREA */
@@ -33,17 +35,17 @@ header h1 {
 }
 
 /* MAIN CONTENT AREA */
-main {
+main {/* for 16x9 - 2 column layout */
   display: grid;
   grid-template-columns: 80vw 20vw;
   grid-template-rows: 92vh;
   overflow: hidden; /* Hide scrollbars */
 }
 
-@media screen and (max-aspect-ratio: 8/5) {
+@media screen and (max-aspect-ratio: 8/5) {/* for mobile - vertical orientation, stacked layout, two rows */
   main {
     grid-template-columns: 100vw;
-    grid-template-rows: auto auto;
+    grid-template-rows: 80vh 12vh;
     overflow: scroll; /* Hide scrollbars */
   }
 }
@@ -52,6 +54,12 @@ main {
   grid-column: 1;
   grid-row: 1;
   position: relative;
+}
+
+@media screen and (max-aspect-ratio: 8/5) {/* for mobile - vertical orientation */
+  #view {
+    height: 50vh;
+  }
 }
 
 #view img {
@@ -75,6 +83,7 @@ main {
 
 .content p {
   margin-top: 0;
+  font-size: 1.25em;
 }
 
 .content input {
@@ -120,7 +129,7 @@ main {
   margin: 5em 0 0 3em;
 }
 
-/*  button used to pause/play the video/animation */
+/* button used to pause/play the video/animation */
 #myBtn {
   width: 200px;
   font-size: 18px;
@@ -136,7 +145,8 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-}
+    max-width: 100%;
+    max-height: 100%;} 
 
 /* NAV AREA */
 nav.menu {
@@ -189,7 +199,7 @@ nav.menu ul li h3 {
 }
 
 nav.menu ul li a h3:hover {
-  color: #FFDB1F;
+  color: #F5B901;
 }
 
 nav.menu ul li h3.nav-selected {
@@ -308,15 +318,17 @@ nav.menu ul li a img {
 div.more-modal {
 	color: white;
   display: grid;
-  grid-template-columns: 45% 45%;
+  grid-template-columns: 45% 40%;
   grid-template-rows: auto;
   grid-gap: 2vw;
+  margin-left: 2%;
 }
 
 div.more-modal h2, .credits h2 {
 	color: #F5B901;
 	margin: 0;
   font-weight: 400;
+  font-size:  2em;
   letter-spacing: 0.025em;
   text-transform: uppercase;
 }
@@ -332,7 +344,7 @@ div.more-modal .more-img img {
 div.more-modal .more-img p.caption {
 	margin: 0.25em 0;
 	color: lightgray;
-	font-size: .75em;
+	font-size: 1em;
 }
 
 div.more-modal p.more-text {
@@ -340,4 +352,5 @@ div.more-modal p.more-text {
   margin-top: 0;
   line-height: 1.4em;
   font-weight: 200;
+  font-size: 1.5em;
 }
