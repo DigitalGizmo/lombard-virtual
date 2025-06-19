@@ -134,13 +134,51 @@ main {/* for 16x9 - 2 column layout */
   cursor: pointer;
 }
 
-/* for brakes animation */
-.brakes-bkgnd, .right-cog, .back-connector, .drive-axle, .linkage, .differential, .left-cog {
+/* Brake container setup */
+.brake-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* for brakes animation - keep your existing rule */
+.brakes-bkgnd, .right-cog, .drive-axle, .linkage, .left-cog {
   position: absolute;
   top: 0;
   left: 0;
-    max-width: 100%;
-    max-height: 100%;} 
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Fix for vertical/mobile layouts */
+@media screen and (max-aspect-ratio: 8/5) {
+  .brake-container {
+    /* Ensure minimum height so brake images don't collapse */
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .brakes-bkgnd, .right-cog, .drive-axle, .linkage, .left-cog {
+    /* Use object-fit to maintain aspect ratio */
+    object-fit: contain;
+    max-width: 90vw;
+    max-height: 50vh;
+  }
+}
+
+/* Additional fix for very small screens */
+@media screen and (max-width: 600px) {
+  .brake-container {
+    min-height: 40vh;
+  }
+  
+  .brakes-bkgnd, .right-cog, .drive-axle, .linkage, .left-cog {
+    max-width: 95vw;
+    max-height: 40vh;
+  }
+}
 
 /* NAV AREA */
 nav.menu {
