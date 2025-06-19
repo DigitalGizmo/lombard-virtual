@@ -69,6 +69,18 @@ main {/* for 16x9 - 2 column layout */
   max-width: 30%;
   min-width: 400px;
   padding: 2%;
+  left: 3vw;
+}
+
+@media screen and (max-aspect-ratio: 8/5) {/* for mobile - vertical orientation, stacked layout, two rows */
+  .content {
+    position: relative;
+    max-width: 100%;
+    font-size: .8em;
+    padding: 2%;
+    left: 0;
+    margin-bottom: 5em;
+  }
 }
 
 .content h1 {
@@ -86,37 +98,25 @@ main {/* for 16x9 - 2 column layout */
   cursor: grab;
 }
 
-#view div.credits-link a {
-  display: block;
-  position: absolute;
-  bottom: 5vh;
-  left: 5vw;
-  text-transform: uppercase;
-  color: #f5b901;
-  text-decoration: none;
-  letter-spacing: 0.0125em;
-}
-
 /* -- position the intro text box --*/
 .hauler{
   top: 3%;
-  left: 3vw;
 }
+
 .crawler {
   top: 10%;
-  left: 3vw;
 }
+
 .steering {
   top: 10%;
-  left: 3vw;
 }
+
 .engine {
   top: 10%;
-  left: 3vw;
 }
+
 .brakes {
   top: 50%;
-  left: 3vw;
 }
 
 .controls {
@@ -136,8 +136,8 @@ main {/* for 16x9 - 2 column layout */
 
 /* styles for the scrubber  */
 input[type=range].scrubber {
-  width: 100%;
-  margin: 7px 0;
+  width: 90%;
+  margin: 12px 0;
   background-color: transparent;
   -webkit-appearance: none;
 }
@@ -338,6 +338,25 @@ nav.menu ul li a img {
   nav.menu ul li a img {
 /*    max-width: 100%;
     max-height: auto;*/
+  }
+}
+
+/* link to credits pop */
+#view div.credits-link a {
+  display: block;
+  position: absolute;
+  bottom: 5vh;
+  left: 5vw;
+  text-transform: uppercase;
+  color: #f5b901;
+  text-decoration: none;
+  letter-spacing: 0.0125em;
+}
+
+@media screen and (max-aspect-ratio: 8/5) {/* for mobile - vertical orientation, stacked layout, two rows */
+  #view div.credits-link a {
+    bottom: 50px;
+    left: 80vw;
   }
 }
 
