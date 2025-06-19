@@ -152,7 +152,7 @@
         <li>
           <a href="/"
             on:click={(e) => { e.preventDefault(); setView(0);}}>
-            <h3 class="{(viewIdx === 0) ? 'nav-selected' : ''}">Overview/Start</h3>
+            <h3 class="{(viewIdx === 0) ? 'nav-selected' : ''}">Overview</h3>
             <img src="{assetPath}images/views/lombard-thm.jpg" 
               class="fit" alt="lombard hauler 3D view">
           </a>
