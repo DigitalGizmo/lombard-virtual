@@ -67,5 +67,5 @@
     </div>
   {/if}
   <label for="rotate">Rotate 3-D View:</label> 
-  <input id="rotate" type="range" min="{min}" max="{max}" step="{step}" bind:value={frame} />
+  <input class="scrubber" id="rotate" type="range" min="{min}" max="{max}" step="{step}" bind:value={frame} />
 </div>

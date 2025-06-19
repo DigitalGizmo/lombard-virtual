@@ -39,6 +39,6 @@
   <!-- <input on:touchstart={losePreview} -->
   <!-- on:mousedown={losePreview} -->
   <label for="rotate-steering">Rotate 3-D View:</label>
-  <input id="rotate-steering" type="range" min="0" max="9" bind:value={frame} />
+  <input class="scrubber" id="rotate-steering" type="range" min="0" max="9" bind:value={frame} />
 
 </div>

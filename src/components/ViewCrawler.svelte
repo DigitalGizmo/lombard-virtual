@@ -68,6 +68,7 @@
   {/if}
   <label for="scrub">Rotate 3-D View:</label>
   <input 
+    class="scrubber"
     id="scrub"
     type="range"
     min="{min}"
