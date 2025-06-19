@@ -200,7 +200,7 @@
       on:click={(e) => { e.preventDefault(); showModal();}}>
       Learn more
     </a> 
-    debug displayFrame: {displayFrame}
+    <!-- debug displayFrame: displayFrame -->
   </p>
   {#if isLoading}
     <div>

@@ -153,18 +153,17 @@ main {/* for 16x9 - 2 column layout */
 /* Fix for vertical/mobile layouts */
 @media screen and (max-aspect-ratio: 8/5) {
   .brake-container {
-    /* Ensure minimum height so brake images don't collapse */
+    /* Match the behavior of other views */
     min-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   
   .brakes-bkgnd, .right-cog, .drive-axle, .linkage, .left-cog {
-    /* Use object-fit to maintain aspect ratio */
+    /* Let images fill width, allow scrolling for height */
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
     object-fit: contain;
-    max-width: 90vw;
-    max-height: 50vh;
   }
 }
 
@@ -172,11 +171,6 @@ main {/* for 16x9 - 2 column layout */
 @media screen and (max-width: 600px) {
   .brake-container {
     min-height: 40vh;
-  }
-  
-  .brakes-bkgnd, .right-cog, .drive-axle, .linkage, .left-cog {
-    max-width: 95vw;
-    max-height: 40vh;
   }
 }
 
