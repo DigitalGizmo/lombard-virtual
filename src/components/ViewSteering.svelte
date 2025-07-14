@@ -1,31 +1,58 @@
 <script>
-  // import { onMount } from 'svelte';
-  export let assetPath; 
-  // export let isPreview;
+  import { onMount } from 'svelte';
+  import { formatFrameNumber } from '../lib/utils.js';
+  import { touchGesture } from '../lib/touchGesture.js';
+  import { createImageLoader } from '../lib/imageLoader.js';
+  
+  export let assetPath;
   export let thisView;
   export let showModal;
 
-  let frame = 0;
+  let frame = 1;
+  const min = 1;
+  const max = 13;
+  const step = 1;
+  
+  // Create image loader
+  const imageLoader = createImageLoader({
+    assetPath,
+    imgDir: 'steering',
+    imgPrefix: 'ST1',
+    min,
+    max,
+    extension: 'png'
+  });
 
-  // function losePreview() {
-  //   isPreview = false;
-  //   console.log(' isPreview: ' + isPreview)
-  // }
+  // Destructure necessary values and functions
+  const { 
+    isLoading, 
+    loadingPercentage,
+    getImagePath,
+    preloadImages
+  } = imageLoader;
+
+    // Calculate zFrame for current frame
+  $: zFrame = formatFrameNumber(frame);
+  
+  // Helper functions for touch gesture
+  function getFrame() {
+    return frame;
+  }
+  
+  function setFrame(value) {
+    frame = value;
+  }
+
+  onMount(() => {
+    preloadImages();
+  });
+
 </script>
 
-<div >
-
-  <!-- Leaving commented code in this one component -- in case -->
-
-  <!-- {#if isPreview}
-    <img src="{assetPath}images/views/lombard-labeled.jpg" 
-     alt="lombard with labels">
-  {:else} -->
-  <img src="{assetPath}images/steering/steering-new.png" 
-    alt="lombard steering">
-  <!-- {/if} -->
+<div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
+  <img src={getImagePath(frame)} alt="lombard steering">
 </div>
-  
+
 <div class="content {thisView.slug}">
   <h1>{thisView.title}</h1>
   <p>{thisView.text} </p>
@@ -38,7 +65,16 @@
 
   <!-- <input on:touchstart={losePreview} -->
   <!-- on:mousedown={losePreview} -->
-  <label for="rotate-steering">Rotate 3-D View:</label>
-  <input class="scrubber" id="rotate-steering" type="range" min="0" max="9" bind:value={frame} />
+  <label for="rotate-steering">Steer the Lombard:</label>
+
+  <input 
+    class="scrubber"
+    id="scrub"
+    type="range"
+    min="{min}"
+    max="{max}"
+    step="{step}"
+    bind:value={frame}
+  />
 
 </div>
