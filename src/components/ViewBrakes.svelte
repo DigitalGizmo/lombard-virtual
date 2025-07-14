@@ -184,8 +184,8 @@
   });  
 </script>
 
-<div class="brake-container" use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
-  <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="brakes-bkgnd">
+<div class="multi-layer-container" use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
+  <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="multi-layer-bkgnd">
   <img src="{assetPath}images/brakes/Layer1/BR1{displayFrame}.png" alt="Right side cog" class="right-cog">
   <img src="{assetPath}images/brakes/Layer2/BR2{displayFrame}.png" alt="drive axle" class="drive-axle">
   <img src={getImagePath(frame)} alt="linkage" class="linkage">

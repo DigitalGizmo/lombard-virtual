@@ -49,8 +49,14 @@
 
 </script>
 
-<div use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
-  <img src={getImagePath(frame)} alt="lombard steering">
+<div class="multi-layer-container" use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
+
+  <img src="{assetPath}images/steering/ST0000.png" alt="Lombard glass background" class="multi-layer-bkgnd">
+
+  <img src={getImagePath(frame)} alt="lombard steering" 
+    class="steering-anim">
+
+  
 </div>
 
 <div class="content {thisView.slug}">
