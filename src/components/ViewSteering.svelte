@@ -8,7 +8,7 @@
   export let thisView;
   export let showModal;
 
-  let frame = 1;
+  let frame = 6;
   const min = 1;
   const max = 13;
   const step = 1;

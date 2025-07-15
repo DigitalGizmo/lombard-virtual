@@ -87,7 +87,7 @@
   );
   
   // Calculate zFrame for current frame
-  $: zFrame = formatFrameNumber(frame);
+  $: zFrame = 13 - formatFrameNumber(frame);
   
   // Helper functions for touch gesture
   function getFrame() {
