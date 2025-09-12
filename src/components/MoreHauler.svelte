@@ -8,6 +8,7 @@
 <div class="more-modal">
 
   <h2>{view.title}</h2>
+  <p>{view.more.blurb}</p>
   <div class="more-img">
     <img src="{assetPath}images/more/hauler-factory.jpg" alt="19 century factory">
     <p class="caption">{view.more.cap1}</p>

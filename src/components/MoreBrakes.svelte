@@ -7,6 +7,7 @@
 
 <div class="more-modal">
   <h2>{view.title}</h2>
+  <p>{view.more.blurb}</p>
 
   <div class="more-img">
     <img src="{assetPath}images/more/brakes-callouts.jpg" alt="diagram of component parts of the Lombard's brake system">
