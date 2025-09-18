@@ -209,5 +209,5 @@
     </div>
   {/if}
   <label for="scrub">Apply the brakes:</label>
-  <input class="scrubber" id="scrub" type="range" min="{min}" max="{max}" step="{step}" bind:value={frame} />
+  <input class="scrubber brakes-scrubber" id="scrub" type="range" min="{min}" max="{max}" step="{step}" bind:value={frame} />
 </div>

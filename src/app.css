@@ -97,6 +97,11 @@ main {/* for 16x9 - 2 column layout */
   cursor: grab;
 }
 
+.content label {
+  padding: .5em 0 1em 0;
+  display: block;
+}
+
 /* -- position the intro text box --*/
 .hauler{
   top: 3%;
@@ -146,14 +151,24 @@ main {/* for 16x9 - 2 column layout */
 
 /* styles for the scrubber  */
 input[type=range].scrubber {
-  width: 90%;
+  width: 80%;
   margin: 12px 0;
   background-color: transparent;
   -webkit-appearance: none;
 }
+
+
+
+input[type=range].brakes-scrubber {
+  width: 60%;
+}
+
+
+
 input[type=range].scrubber:focus {
   outline: none;
 }
+
 input[type=range].scrubber::-webkit-slider-runnable-track {
   background: rgba(50, 50, 50, 0.5);
   border: 0.2px solid #010101;
@@ -163,12 +178,12 @@ input[type=range].scrubber::-webkit-slider-runnable-track {
   cursor: pointer;
 }
 input[type=range].scrubber::-webkit-slider-thumb {
-  margin-top: -7.2px;
-  width: 20px;
-  height: 20px;
+  margin-top: -12.5px;
+  width: 30px;
+  height: 30px;
   background: #f5b901;
   border: 1px solid #777777;
-  border-radius: 10px;
+  border-radius: 16px;
   cursor: pointer;
   -webkit-appearance: none;
 }

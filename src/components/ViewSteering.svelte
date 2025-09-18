@@ -55,8 +55,6 @@
 
   <img src={getImagePath(frame)} alt="lombard steering" 
     class="steering-anim">
-
-  
 </div>
 
 <div class="content {thisView.slug}">
