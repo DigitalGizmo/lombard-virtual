@@ -9,7 +9,7 @@
 
   <h2>{view.title}</h2>
   <h3>{view.more.blurb}</h3>
-  
+
   <div class="more-img">
     <img src="{assetPath}images/more/hauler-factory.jpg" alt="19 century factory">
     <p class="caption">{view.more.cap1}</p>
@@ -18,7 +18,7 @@
   <p class="more-text">{view.more.para1}</p>
 
   <div class="more-img">
-    <img src="{assetPath}images/more/hauler-on-snow.png" alt="antique photograph of Lombard Hauler on snow">  
+    <img src="{assetPath}images/more/hauler-on-snow.jpg" alt="antique photograph of Lombard Hauler on snow">  
     <p class="caption">{view.more.cap2}</p>
   </div>
 
