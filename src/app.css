@@ -128,15 +128,20 @@ main {/* for 16x9 - 2 column layout */
   margin: 5em 0 0 3em;
 }
 
-/* button used to pause/play the video/animation */
-#myBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
+#learn-more-btn {
   border: none;
-  background: #000;
-  color: #fff;
+  background: #f5b901;
   cursor: pointer;
+  display: block;
+  margin-bottom: 1em;
+  padding: 0.5em 0.75em;
+}
+
+#learn-more-btn a {
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 1.25em;
+  text-transform: uppercase;
+  color: #4d4d4d;
 }
 
 /* styles for the scrubber  */
@@ -239,8 +244,7 @@ how to remove the virtical space around the range input in IE*/
 }
 
 /* for brakes animation - keep your existing rule */
-.multi-layer-bkgnd, .right-cog, .drive-axle, 
-  .linkage, .left-cog, .steering-anim {
+.brakes-part, .multi-layer-bkgnd, .steering-anim {
   position: absolute;
   top: 0;
   left: 0;
@@ -255,7 +259,7 @@ how to remove the virtical space around the range input in IE*/
     min-height: 50vh;
   }
   
-  .brakes-bkgnd, .right-cog, .drive-axle, .linkage, .left-cog {
+  .brakes-part {
     /* Let images fill width, allow scrolling for height */
     width: 100%;
     height: auto;

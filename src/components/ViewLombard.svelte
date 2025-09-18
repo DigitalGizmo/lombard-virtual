@@ -55,12 +55,12 @@
 <div class="content {thisView.slug}">
   <h1>{thisView.title}</h1>
   <p>{thisView.text}</p>
-  <p>
+  <button id="learn-more-btn">
     <a href="/" 
       on:click={(e) => { e.preventDefault(); showModal();}}>
       Learn more
     </a>
-  </p>
+  </button>
   {#if $isLoading}
     <div>
       Loading Lombard view... {$loadingPercentage}%

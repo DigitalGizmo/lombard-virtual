@@ -185,23 +185,24 @@
 </script>
 
 <div class="multi-layer-container" use:touchGesture={{ min, max, step, getValue: getFrame, setValue: setFrame }}>
-  <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="multi-layer-bkgnd">
-  <img src="{assetPath}images/brakes/Layer1/BR1{displayFrame}.png" alt="Right side cog" class="right-cog">
-  <img src="{assetPath}images/brakes/Layer2/BR2{displayFrame}.png" alt="drive axle" class="drive-axle">
-  <img src={getImagePath(frame)} alt="linkage" class="linkage">
-  <img src="{assetPath}images/brakes/Layer4/BR4{displayFrame}.png" alt="left cog" class="left-cog">
+  <img src="{assetPath}images/brakes/BR101.jpg" alt="Lombard glass background" class="brakes-part">
+  <img src="{assetPath}images/brakes/Layer1/BR1{displayFrame}.png" alt="Right side cog" class="brakes-part">
+  <img src="{assetPath}images/brakes/Layer2/BR2{displayFrame}.png" alt="drive axle" class="brakes-part">
+  <img src={getImagePath(frame)} alt="linkage" class="brakes-part">
+  <img src="{assetPath}images/brakes/Layer4/BR4{displayFrame}.png" alt="left cog" class="brakes-part">
+  <img src="{assetPath}images/brakes/mask.png" alt="spot-lighting mask" class="brakes-part">
 </div>
 
 <div class="content {thisView.slug}">
   <h1>{thisView.title}</h1>
   <p>{thisView.text}</p>
-  <p>
+  <button id="learn-more-btn">
     <a href="/" 
       on:click={(e) => { e.preventDefault(); showModal();}}>
       Learn more
     </a> 
+  </button>
     <!-- debug displayFrame: displayFrame -->
-  </p>
   {#if isLoading}
     <div>
       Loading Engine... {loadingPercentage}%
