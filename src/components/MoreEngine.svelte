@@ -7,7 +7,7 @@
 
 <div class="more-modal">
   <h2>{view.title}</h2>
-  <p>{view.more.blurb}</p>
+  <h3>{view.more.blurb}</h3>
 
   <div class="more-img">
     <img src="{assetPath}images/more/engine-callouts.jpg" alt="lombard engine with component parts labeled">

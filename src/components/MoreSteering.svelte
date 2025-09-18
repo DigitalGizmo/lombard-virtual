@@ -7,7 +7,7 @@
 
 <div class="more-modal">
   <h2>{view.title}</h2>
-  <p>{view.more.blurb}</p>
+  <h3>{view.more.blurb}</h3>
 
   <div class="more-img">
     <img src="{assetPath}images/more/MS73.77_01-001.jpg" alt="horse and oxen drawing logs on sleds">

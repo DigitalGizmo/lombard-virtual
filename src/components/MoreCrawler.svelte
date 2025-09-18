@@ -7,7 +7,7 @@
 
 <div class="more-modal">
   <h2>{view.title}</h2>
-  <p>{view.more.blurb}</p>
+  <h3>{view.more.blurb}</h3>
 
   <div class="more-img">
     <img src="{assetPath}images/views/crawler-track.png" alt="lombard crawler track or lag bed">
