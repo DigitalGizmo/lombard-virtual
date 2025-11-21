@@ -408,6 +408,7 @@ nav.menu ul li a img {
 @media screen and (max-width: 799px) { /* displays smaller than 800px */
 	.modal-basic {
     display: block;
+    margin: auto;
 	  overflow-x: hidden;
 	  overflow-y: scroll;
 	  position: fixed;/* this positions the modal window relative to viewport, it won't scroll with the page */  
@@ -419,24 +420,22 @@ nav.menu ul li a img {
 
 @media screen and (min-width: 800px) { /* displays larger than 800px */
 	.modal-basic {
-	  /*bottom: 0;*/
 	  display: block;
-	  /*left: 0;*/
 	  margin: auto;
     overflow-x: hidden;
 	  overflow-y: scroll;
 	  position: fixed;/* this positions the modal window relative to viewport, it won't scroll with the page */  
 	  z-index: 100;
-	  /*right: 0;*/
     height: 100vh;
     width: 100vw;
+    right: 25vw;
 	}
 }
 
 /* for credits modal popup */
 .credits {
   color: white;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   top: 20vh;
   width: 50vw;
 }
