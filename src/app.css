@@ -251,11 +251,11 @@ how to remove the virtical space around the range input in IE*/
   }
 }
 /* following styles courtesy of Claude */
-/* Brake container setup */
+/* Multi-layer container setup */
 .multi-layer-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  /* Removed height: 100% - allows container to size naturally based on content */
 }
 
 /* Background image defines container height */
