@@ -176,7 +176,7 @@
         <li>
           <a href="/"
             on:click={(e) => { e.preventDefault(); setView(3);}}>
-            <h3 class="{(viewIdx === 3) ? 'nav-selected' : ''}">Gas Engine</h3>
+            <h3 class="{(viewIdx === 3) ? 'nav-selected' : ''}">Gasoline Engine</h3>
             <img src="{assetPath}images/views/engine-thm.jpg" 
             class="fit" alt="lombard gas engine">
           </a>
