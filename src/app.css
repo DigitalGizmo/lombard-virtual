@@ -492,8 +492,17 @@ nav.menu ul li a img {
   width: 40px;
 }
 
-.close { 
+.modal-close a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.close {
   cursor:pointer;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .close:after, .close:before {
