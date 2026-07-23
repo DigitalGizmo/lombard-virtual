@@ -11,26 +11,17 @@
   let viewIdx = 0;
   let isModalShowing = false;
   let isCredits = true;
-  let assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
-  
-  let buildMode = 0;
-  // buildMode: 0 = devel, 1 web, 2 = kiosk
-
-  if (buildMode === 0) {
-    assetPath = "https://assets.digitalgizmo.com/lombard-virtual/";
-  } else if (buildMode === 1) {
-    assetPath = "https://mainestetemuseum.org/lombard-virtual/";
-  } else {
-    console.log(' buildMode: ' + buildMode);
-    assetPath = "";
-  }
+  // Build config comes from .env files (see .env, .env.web, .env.kiosk).
+  // Run with: npm run dev | dev:web | dev:kiosk, or build | build:web | build:kiosk
+  const assetPath = import.meta.env.VITE_ASSET_PATH;
+  const isKiosk = import.meta.env.VITE_KIOSK === 'true';
 
   // Kiosk timeout functionality
   const TIMEOUT_DURATION = 60000; // 120000 2 minutes in milliseconds
   let timeoutId;
 
   function resetTimeout() {
-    if (buildMode === 2 && (viewIdx !== 0 || isModalShowing)) {
+    if (isKiosk && (viewIdx !== 0 || isModalShowing)) {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         viewIdx = 0;
@@ -46,14 +37,14 @@
   }
 
   function handleUserActivity() {
-    if (buildMode === 2) {
+    if (isKiosk) {
       resetTimeout();
     }
   }
 
   function setView(_viewIdx) {
     viewIdx = _viewIdx;
-    if (buildMode === 2 && (_viewIdx !== 0 || isModalShowing)) {
+    if (isKiosk && (_viewIdx !== 0 || isModalShowing)) {
       resetTimeout();
     }
   }
@@ -71,7 +62,7 @@
   }
 
   onMount(() => {
-    if (buildMode === 2) {
+    if (isKiosk) {
       // Add event listeners for user activity
       window.addEventListener('click', handleUserActivity);
       window.addEventListener('touchstart', handleUserActivity);
@@ -81,7 +72,7 @@
   });
 
   onDestroy(() => {
-    if (buildMode === 2) {
+    if (isKiosk) {
       // Clean up event listeners and timeout
       window.removeEventListener('click', handleUserActivity);
       window.removeEventListener('touchstart', handleUserActivity);
