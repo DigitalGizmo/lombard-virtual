@@ -17,7 +17,7 @@
   const isKiosk = import.meta.env.VITE_KIOSK === 'true';
 
   // Kiosk timeout functionality
-  const TIMEOUT_DURATION = 60000; // 120000 2 minutes in milliseconds
+  const TIMEOUT_DURATION = 90000; // 1.5 minutes in milliseconds
   let timeoutId;
 
   function resetTimeout() {
